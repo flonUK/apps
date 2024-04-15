@@ -1,0 +1,142 @@
+{{ 'scrolling-bar.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scrolling-bar.js' | asset_url }}" defer></script>
+
+<div class="scrolling-bar" style="background-color: {{ block.settings.background_color }}; height: {{ block.settings.scrolling_height }}px;">
+  <div class="scrolling-content" style="font-weight: {{ block.settings.text_font_weight }}; font-size: {{ block.settings.font_size }}px; animation-duration: {{ block.settings.scrolling_speed }}s;">
+    <a href="{{ block.settings.universal_link }}" style="color: {{ block.settings.text_color }}; font-family: {{ block.settings.text_font.family }}; text-decoration: none;">
+      {% for i in (1..4) %}
+        {% assign icon_image = 'icon_image_' | append: i %}
+        {% assign scrolling_text = 'scrolling_text_' | append: i %}
+        {% if block.settings[icon_image] %}
+          <img src="{{ block.settings[icon_image] | image_url: width: 50, height: 50, crop: 'center' }}" alt="" width="50" height="50">
+        {% endif %}
+        {% if block.settings[scrolling_text] %}
+          <span>{{ block.settings[scrolling_text] }}</span>
+        {% endif %}
+      {% endfor %}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling Bar",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Scrolling Content"
+    },
+    {
+      "type": "text",
+      "id": "scrolling_text_1",
+      "label": "Text Segment 1",
+      "default": "FREE SHIPPING ON ALL ORDERS OVER £100 |"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_1",
+      "label": "Icon/Image 1"
+    },
+    {
+      "type": "text",
+      "id": "scrolling_text_2",
+      "label": "Text Segment 2",
+      "default": "DELIVERIES WITHIN 1 - 3 WORKING DAYS |"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_2",
+      "label": "Icon/Image 2"
+    },
+    {
+      "type": "text",
+      "id": "scrolling_text_3",
+      "label": "Text Segment 3",
+      "default": "FREE RETURNS ON ALL ORDERS |"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_3",
+      "label": "Icon/Image 3"
+    },
+    {
+      "type": "text",
+      "id": "scrolling_text_4",
+      "label": "Text Segment 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image_4",
+      "label": "Icon/Image 4"
+    },
+    {
+      "type": "url",
+      "id": "universal_link",
+      "label": "Content Link"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "select",
+      "id": "text_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "scrolling_height",
+      "label": "Bar Height",
+      "min": 50,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "label": "Scrolling Speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "default": 20
+    }
+  ]
+}
+{% endschema %}

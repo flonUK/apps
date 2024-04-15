@@ -1,0 +1,135 @@
+<div class="card-container" style="animation-duration: {{ settings.scroll_speed }}s;">
+    {% for i in (1..10) %}
+      {% capture image_var %}image_{{ i }}{% endcapture %}
+      {% capture title_var %}title_{{ i }}{% endcapture %}
+      {% capture rating_var %}rating_{{ i }}{% endcapture %}
+      {% capture description_var %}description_{{ i }}{% endcapture %}
+      {% capture link_var %}link_{{ i }}{% endcapture %}
+  
+      {% if settings[image_var] != blank %}
+        <div class="card-content">
+          <img src="{{ settings[image_var] | img_url: '300x300' }}" alt="{{ settings[title_var] | escape }}">
+          <h3>{{ settings[title_var] }}</h3>
+          <p>{{ settings[rating_var] }}</p>
+          <p>{{ settings[description_var] }}</p>
+          <a href="{{ settings[link_var] }}">Learn More</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <!-- Include your CSS file -->
+  <link rel="stylesheet" href="{{ 'scrolling-card.css' | asset_url }}">
+  
+  <!-- Include your JavaScript file -->
+  <script src="{{ 'scrolling-card.js' | asset_url }}" defer></script>
+  
+  
+  {% schema %}
+  {% schema %}
+  {
+    "name": "Scrolling Cards",
+    "settings": [
+      {
+        "type": "range",
+        "id": "scroll_speed",
+        "label": "Scroll Speed (seconds)",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "default": 30,
+        "unit": "s"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_card_1",
+        "label": "Enable Card 1",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "card_image_1",
+        "label": "Card Image 1"
+      },
+      {
+        "type": "text",
+        "id": "card_title_1",
+        "label": "Card Title 1",
+        "default": "Your Product Name"
+      },
+      {
+        "type": "text",
+        "id": "card_rating_1",
+        "label": "Card Rating 1",
+        "default": "★★★★★"
+      },
+      {
+        "type": "textarea",
+        "id": "card_description_1",
+        "label": "Card Description 1",
+        "default": "This is a description of your product."
+      },
+      {
+        "type": "url",
+        "id": "card_link_1",
+        "label": "Card Link URL 1"
+      },
+      // Repeat the above fields for each card from 2 to 10
+      {
+        "type": "checkbox",
+        "id": "enable_card_2",
+        "label": "Enable Card 2"
+        // No default provided; it will default to false
+      },
+      {
+        "type": "image_picker",
+        "id": "card_image_2",
+        "label": "Card Image 2"
+        // No default; the merchant will choose the image
+      },
+      {
+        "type": "text",
+        "id": "card_title_2",
+        "label": "Card Title 2",
+        "default": "Your Product Name"
+      },
+      // ...continue repeating the pattern for each card...
+      {
+        "type": "checkbox",
+        "id": "enable_card_10",
+        "label": "Enable Card 10"
+      },
+      {
+        "type": "image_picker",
+        "id": "card_image_10",
+        "label": "Card Image 10"
+      },
+      {
+        "type": "text",
+        "id": "card_title_10",
+        "label": "Card Title 10",
+        "default": "Your Product Name"
+      },
+      {
+        "type": "text",
+        "id": "card_rating_10",
+        "label": "Card Rating 10",
+        "default": "★★★★★"
+      },
+      {
+        "type": "textarea",
+        "id": "card_description_10",
+        "label": "Card Description 10",
+        "default": "This is a description of your product."
+      },
+      {
+        "type": "url",
+        "id": "card_link_10",
+        "label": "Card Link URL 10"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  {% endschema %}
+  

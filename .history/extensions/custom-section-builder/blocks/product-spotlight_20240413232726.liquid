@@ -1,0 +1,47 @@
+{% schema %}
+{
+  "name": "Product Card",
+  "class": "product-card-section",
+  "target": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "product_collection",
+      "label": "Select Product Collection",
+      "info": "Select a collection containing the products you want to display."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+<div class="product-card-section">
+  {% for i in (1..3) %}
+    {% assign product_key = "selected_product_" | append: i %}
+    {% assign product = block.settings[product_key] %}
+    <div class="product-card" style="background-color: {{ block.settings.background_color | default: '#ffffff' }};">
+      {% if product %}
+        <div class="product-details">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+          <h2>{{ product.title }}</h2>
+          <p>{{ product.price | money }}</p>
+          <button class="add-to-cart" data-product-id="{{ product.variants.first.id }}">Add to Cart</button>
+        </div>
+      {% else %}
+        <p>No product selected.</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<script src="{{ 'product-card.js' | asset_url }}" defer></script>

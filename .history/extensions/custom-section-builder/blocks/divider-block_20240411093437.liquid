@@ -1,0 +1,58 @@
+{% schema %}
+{
+  "name": "Divider Block",
+  "target"
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Divider Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Divider Width",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "thickness",
+      "label": "Divider Thickness",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "hover_effect",
+      "label": "Hover Effect",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "wobble", "label": "Wobble" },
+        { "value": "pulse", "label": "Pulse" },
+        { "value": "buzz", "label": "Buzz" }
+      ],
+      "default": "none"
+    }
+  ]
+}
+{% endschema %}
+
+
+{{ 'divider-block.css' | asset_url | stylesheet_tag }}
+
+<div class="adedayo-divider-block-divider adedayo-divider-block-divider--{{ block.settings.hover_effect }}"
+    style="
+      --adedayo-divider-block-color: {{ block.settings.color }};
+      --adedayo-divider-block-width: {{ block.settings.width }}%;
+      --adedayo-divider-block-thickness: {{ block.settings.thickness }}px;
+    ">
+  </div>
+  

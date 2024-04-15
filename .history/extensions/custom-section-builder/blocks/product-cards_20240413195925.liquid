@@ -1,0 +1,84 @@
+{{ 'product-cards.css' | asset_url | stylesheet_tag }}
+<div class="adedayo-product-cards">
+  {% for i in (1..3) %}
+    <div class="adedayo-product-card" data-product-id="{{ i }}">
+      {% capture background_color %}background_color_product_{{ i }}{% endcapture %}
+      <div class="adedayo-product-card__background" style="background-color: {{ block.settings[background_color] }};">
+        <div class="adedayo-product-card__image-container">
+          {% capture product_setting %}product_{{ i }}{% endcapture %}
+          {% if block.settings[product_setting] != blank %}
+            {% assign product = all_products[block.settings[product_setting]] %}
+            {% for image in product.images limit: 5 %}
+              <img class="adedayo-product-card__image" src="{{ image | image_url: '800x' }}" alt="{{ image.alt | escape }}">
+            {% endfor %}
+          {% else %}
+            {{ 'product-' | append: i | placeholder_svg_tag: 'adedayo-product-card__placeholder' }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="adedayo-product-card__info">
+        <h3 class="adedayo-product-card__title">{{ product.title | default: 'Product ' | append: i }}</h3>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<script src="{{ 'product-cards.js' | asset_url }}" defer></script>
+  
+  
+
+
+
+
+
+{% schema %}
+{
+  "name": "Product Cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "background_color_product_1",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Product 2"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "background_color_product_2",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Product 3"
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "background_color_product_3",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    }
+  ]
+}
+{% endschema %}

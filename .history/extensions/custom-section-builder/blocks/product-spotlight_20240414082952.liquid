@@ -1,0 +1,45 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% for i in (1..3) %}
+    <div class="product-spotlight-card">
+      <div class="product-spotlight-image-container" data-product-handle="{{ settings.product_spotlight_product_handle_list | split: ',' | slice: i | first | strip }}"></div>
+      <div class="product-spotlight-title"></div>
+    </div>
+  {% endfor %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_spotlight_product_handle_list",
+      "label": "Product Handles",
+      "info": "Add up to 3 product handles separated by commas"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_1",
+      "label": "Card 1 Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_2",
+      "label": "Card 2 Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_3",
+      "label": "Card 3 Background Color",
+      "default": "#FFFFFF"
+    }
+  ]
+}
+{% endschema %}

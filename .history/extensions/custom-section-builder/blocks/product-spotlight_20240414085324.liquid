@@ -1,0 +1,26 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% if block.settings.product != blank %}
+    <div class="product-spotlight-card">
+      <div class="product-spotlight-image-container">
+        <img src="{{ block.settings.product.featured_image | img_url: 'large' }}" alt="{{ block.settings.product.title }}">
+      </div>
+      <div class="product-spotlight-title">{{ block.settings.product.title }}</div>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ]
+}
+{% endschema %}

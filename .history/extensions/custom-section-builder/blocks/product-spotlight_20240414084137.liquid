@@ -1,0 +1,68 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% if block.settings.product_1 != blank %}
+    <div class="product-spotlight-card" style="background-color: {{ block.settings.card_bg_color_1 }};">
+      <div class="product-spotlight-image-container" data-product-handle="{{ block.settings.product_1.handle }}"></div>
+      <div class="product-spotlight-title"></div>
+    </div>
+  {% endif %}
+  
+  {% if block.settings.product_2 != blank %}
+    <div class="product-spotlight-card" style="background-color: {{ block.settings.card_bg_color_2 }};">
+      <div class="product-spotlight-image-container" data-product-handle="{{ block.settings.product_2.handle }}"></div>
+      <div class="product-spotlight-title"></div>
+    </div>
+  {% endif %}
+  
+  {% if block.settings.product_3 != blank %}
+    <div class="product-spotlight-card" style="background-color: {{ block.settings.card_bg_color_3 }};">
+      <div class="product-spotlight-image-container" data-product-handle="{{ block.settings.product_3.handle }}"></div>
+      <div class="product-spotlight-title"></div>
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_1",
+      "label": "Card 1 Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product 2"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_2",
+      "label": "Card 2 Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "Product 3"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color_3",
+      "label": "Card 3 Background Color",
+      "default": "#FFFFFF"
+    }
+  ]
+}
+{% endschema %}

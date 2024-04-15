@@ -1,0 +1,251 @@
+{% schema %}
+{
+"name": "Countdown Banner",
+"class": "countdown-banner",
+"target": "section",
+"settings": [
+{
+"type": "header",
+"content": "General Settings"
+},
+{
+"type": "radio",
+"id": "background_type",
+"label": "Background Type",
+"options": [
+{
+"value": "color",
+"label": "Color"
+},
+{
+"value": "image",
+"label": "Image"
+}
+],
+"default": "color"
+},
+{
+"type": "color",
+"id": "background_color",
+"label": "Background Color",
+"default": "#000000"
+},
+{
+"type": "image_picker",
+"id": "background_image",
+"label": "Background Image"
+},
+{
+"type": "range",
+"id": "banner_height",
+"label": "Banner Height",
+"min": 50,
+"max": 100,
+"step": 1,
+"unit": "vh",
+"default": 80
+},
+{
+"type": "color",
+"id": "text_color",
+"label": "Text Color",
+"default": "#ffffff"
+},
+{
+"type": "header",
+"content": "Headline Settings"
+},
+{
+"type": "text",
+"id": "headline",
+"label": "Headline",
+"default": "Limited Time Offer"
+},
+{
+"type": "color",
+"id": "headline_color",
+"label": "Headline Color",
+"default": "#ffffff"
+},
+{
+"type": "select",
+"id": "headline_alignment",
+"label": "Headline Alignment",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+},
+{
+"type": "range",
+"id": "headline_size",
+"label": "Headline Font Size",
+"min": 12,
+"max": 72,
+"step": 1,
+"unit": "px",
+"default": 36
+},
+{
+"type": "header",
+"content": "Description Settings"
+},
+{
+"type": "richtext",
+"id": "description",
+"label": "Description",
+"default": "<p>Get your orders before the countdown ends!</p>"
+},
+{
+"type": "color",
+"id": "description_color",
+"label": "Description Color",
+"default": "#ffffff"
+},
+{
+"type": "select",
+"id": "description_alignment",
+"label": "Description Alignment",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+},
+{
+"type": "range",
+"id": "description_size",
+"label": "Description Font Size",
+"min": 12,
+"max": 24,
+"step": 1,
+"unit": "px",
+"default": 18
+},
+{
+"type": "header",
+"content": "Countdown Settings"
+},
+{
+"type": "text",
+"id": "countdown_date",
+"label": "Countdown Date (YYYY-MM-DD)",
+"default": "2030-12-31"
+},
+{
+"type": "color",
+"id": "countdown_color",
+"label": "Countdown Color",
+"default": "#ffffff"
+},
+{
+"type": "select",
+"id": "countdown_alignment",
+"label": "Countdown Alignment",
+"options": [
+{
+"value": "flex-start",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "flex-end",
+"label": "Right"
+}
+],
+"default": "center"
+},
+{
+"type": "range",
+"id": "countdown_size",
+"label": "Countdown Font Size",
+"min": 12,
+"max": 48,
+"step": 1,
+"unit": "px",
+"default": 24
+},
+{
+"type": "text",
+"id": "expired_text",
+"label": "Expired Text",
+"default": "EXPIRED"
+},
+{
+"type": "header",
+"content": "Button Settings"
+},
+{
+"type": "text",
+"id": "button_text",
+"label": "Button Text",
+"default": "Shop Now"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Button Link"
+},
+{
+"type": "color",
+"id": "button_text_color",
+"label": "Button Text Color",
+"default": "#000000"
+},
+{
+"type": "color",
+"id": "button_background_color",
+"label": "Button Background Color",
+"default": "#ffffff"
+},
+{
+"type": "checkbox",
+"id": "button_pill_style",
+"label": "Use Pill Style Button",
+"default": false
+}
+]
+}
+{% endschema %}
+
+
+
+{% if block.settings.background_type == 'color' %}
+  {% assign background_style = 'background-color: ' | append: block.settings.background_color | append: ';' %}
+  {% elsif block.settings.background_type == 'image' and block.settings.background_image != blank %}
+  {% assign image_url = block.settings.background_image | image_url: width: 2000 %}
+  {% assign background_style = 'background-image: url(' | append: image_url | append: '); background-size: cover; background-position: center;' %}
+  {% else %}
+  {% assign background_style = 'background-color: #000000;' %}
+  {% endif %}
+  
+  <div class="adedayo-countdown-banner" style="{{ background_style }} color: {{ block.settings.text_color }}; height: {{ block.settings.banner_height }}vh;"> <div class="adedayo-countdown-banner__content"> <h2 class="adedayo-countdown-banner__headline" style="font-size: {{ block.settings.headline_size }}px; color: {{ block.settings.headline_color }}; text-align: {{ block.settings.headline_alignment }};"> {{ block.settings.headline }} </h2> 
+  <div class="adedayo-countdown-banner__description" style="font-size: {{ block.settings.description_size }}px; color: {{ block.settings.description_color }}; text-align: {{ block.settings.description_alignment }};"> {{ block.settings.description }} 
+</div> <div class="adedayo-countdown-banner__timer" style="font-size: {{ block.settings.countdown_size }}px; color: {{ block.settings.countdown_color }}; justify-content: {{ block.settings.countdown_alignment }};" data-countdown-date="{{ block.settings.countdown_date }}" data-expired-text="{{ block.settings.expired_text }}"> <span class="adedayo-countdown-banner__timer-item adedayo-countdown-banner__days"></span> <span class="adedayo-countdown-banner__timer-separator">:</span> <span class="adedayo-countdown-banner__timer-item adedayo-countdown-banner__hours"></span> <span class="adedayo-countdown-banner__timer-separator">:</span> <span class="adedayo-countdown-banner__timer-item adedayo-countdown-banner__minutes"></span> <span class="adedayo-countdown-banner__timer-separator">:</span> <span class="adedayo-countdown-banner__timer-item adedayo-countdown-banner__seconds"></span> </div> {% if block.settings.button_text != blank %} <a href="{{ block.settings.link }}" class="adedayo-countdown-banner__link{% if block.settings.button_pill_style %} adedayo-countdown-banner__link--pill{% endif %}" style="color: {{ block.settings.button_text_color }}; background-color: {{ block.settings.button_background_color }};"> {{ block.settings.button_text }} </a> {% endif %} </div> </div>
+  {{ 'countdown-banner.css' | asset_url | stylesheet_tag }}
+  
+  <script src="{{ 'countdown-banner.js' | asset_url }}" defer></script>

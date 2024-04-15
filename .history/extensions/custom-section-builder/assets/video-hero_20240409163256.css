@@ -1,0 +1,169 @@
+/* Base styling for the video hero container */
+.video-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  }
+  
+  /* Video wrapper to contain video or iframe */
+  .video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  }
+  
+  /* Styling for the cover image container /
+  .cover-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2; / Ensure cover image is above the video but below interactive elements */
+  }
+  
+  /* Styling for the poster image */
+  .video-hero-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+  
+  /* Play button styling */
+  .video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  /* Play icon styling */
+  .video-play-button .icon {
+  width: 40px;
+  height: 40px;
+  color: #000;
+  }
+  
+  /* Background video and external iframe styling /
+  .video-hero-background, .youtube-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; / Ensure video is below overlay elements */
+  }
+  
+
+  .video-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; / Align content to bottom */
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 4;
+  }
+  
+  /* Main title styling /
+  .video-hero-text {
+  color: #FFFFFF;
+  margin-bottom: 1em;
+  font-size: 2em; / Enhanced visibility */
+  }
+  
+  /* Subtitle text styling /
+  .video-hero-subtext {
+  color: #FFFFFF;
+  margin-bottom: 2em;
+  font-size: 1.5em; / Proportionate to main title */
+  }
+  
+  /* Button container styling /
+  .video-hero-button-container {
+  display: flex;
+  justify-content: center; / Center button by default */
+  width: 100%;
+  
+  }
+  
+  /* Button styling */
+  .video-hero-button {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #000000;
+  color: #FFFFFF;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Hover effects for the button */
+  .video-hero-button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  
+  /* Rounded button styling /
+  .rounded-button {
+  border-radius: 25px; / Smooth rounded edges */
+  }
+  
+  /* Hide mobile video by default */
+  .video-hero-background.mobile {
+  display: none;
+  }
+  
+  /* Responsive adjustments for alignment and text sizing /
+  @media (min-width: 768px) {
+  .video-hero-overlay {
+  justify-content: flex-end;
+  align-items: flex-start; / Align items to the left */
+  padding-left: 5%;
+  padding-bottom: 5%;
+  }
+  .video-hero-text, .video-hero-subtext {
+  text-align: left;
+  }
+  }
+  
+  @media (max-width: 767px) {
+  .video-hero-text, .video-hero-subtext {
+  font-size: 1em; /* Adjusted for better readability on smaller screens /
+  }
+  .video-hero-button {
+  padding: 8px 16px;
+  font-size: 0.875em; / Smaller button for compact spaces /
+  }
+  .video-hero-overlay {
+  align-items: center; / Center alignment for a cohesive look on mobile /
+  padding-bottom: 20px; / Ensures content is not flush with the screen's bottom */
+  }
+  
+  /* Display mobile video on mobile devices */
+  .video-hero-background.desktop {
+  display: none;
+  }
+  .video-hero-background.mobile {
+  display: block;
+  }
+  }

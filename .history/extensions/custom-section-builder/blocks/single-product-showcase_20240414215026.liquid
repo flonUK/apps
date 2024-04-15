@@ -1,0 +1,44 @@
+{% schema %}
+{
+  "name": "Single Product Showcase",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "number",
+      "id": "image_transition_duration",
+      "label": "Image Transition Duration (ms)",
+      "default": 3000
+    }
+  ]
+}
+{% endschema %}
+
+<div class="single-product-showcase" style="background-color: {{ block.settings.background_color }};">
+  {% assign product = all_products[block.settings.product] %}
+  <div class="product-info">
+    <h2 class="product-title">{{ product.title }}</h2>
+    <p class="product-price">{{ product.price | money }}</p>
+  </div>
+  <div class="product-images">
+    <div class="product-image-container">
+      <img src="{{ product.images[0] | img_url: 'large' }}" alt="{{ product.images[0].alt }}" class="product-image active">
+    </div>
+    <div class="product-image-container">
+      <img src="{{ product.images[1] | img_url: 'large' }}" alt="{{ product.images[1].alt }}" class="product-image">
+    </div>
+  </div>
+  <div class="add-to-cart-button">
+    <button>Add to Cart</button>
+  </div>
+</div>

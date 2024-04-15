@@ -1,0 +1,211 @@
+{{ 'product-showcase.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-showcase.js' | asset_url }}" defer></script>
+
+<div class="product-showcase-app">
+  <div class="product-showcase" data-show-chevron="{{ block.settings.show_chevron }}" data-show-logo-desktop="{{ block.settings.show_logo_desktop }}" data-show-logo-mobile="{{ block.settings.show_logo_mobile }}">
+    <div class="product-grid">
+      <!-- Product Item 1 -->
+      <div class="product-item">
+        <div class="product-image-container">
+          <!-- Conditional display for desktop logo and text, adjust class addition based on "show_logo_desktop" -->
+          <div class="logo-and-text-container desktop-only {% unless block.settings.show_logo_desktop %}desktop-hidden{% endunless %}" style="color: {{ block.settings.text_color }};">
+            {% if block.settings.logo != blank %}
+              <img class="logo" src="{{ block.settings.logo | image_url: width: 40, height: 40, crop: 'center' }}" alt="Logo" width="40" height="40">
+            {% else %}
+              <img class="logo" src="{{ 'product_collection_2.png' | asset_url }}" alt="Logo Placeholder" width="40" height="40">
+            {% endif %}
+            <span class="special-text">{{ block.settings.text_1 }}</span>
+          </div>
+
+          <!-- Conditional text container display based on the desktop logo setting -->
+          <div class="text-container {% if block.settings.show_logo_desktop %}desktop-hidden{% else %}desktop-shown{% endif %}" data-text-position-desktop="{{ block.settings.text_position_desktop }}" data-text-position-mobile="{{ block.settings.text_position_mobile }}">
+            <a href="{{ block.settings.product_link_1 }}" class="chevron-link">
+              <svg class="chevron" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.9393 0.93934C23.5251 0.353553 24.4749 0.353553 25.0607 0.93934L47.6066 23.4853C48.1924 24.0711 48.1924 25.0208 47.6066 25.6066C47.0208 26.1924 46.0711 26.1924 45.4853 25.6066L24 4.12132L2.51472 25.6066C1.92893 26.1924 0.979185 26.1924 0.393403 25.6066C-0.192379 25.0208 -0.192379 24.0711 0.393403 23.4853L22.9393 0.93934ZM22.5 3L22.5 2L25.5 2L25.5 3L22.5 3Z" fill="{{ block.settings.chevron_color }}"/>
+              </svg>
+            </a>
+            <span class="image-text" style="color: {{ block.settings.text_color }}; font-size: {{ block.settings.font_size }}px;">{{ block.settings.text_1 }}</span>
+          </div>
+          <!-- Logo for mobile only -->
+          <div class="logo-container mobile-only" style="display: {% if block.settings.show_logo_mobile %}block{% else %}none{% endif %};">
+            {% if block.settings.logo != blank %}
+              <img class="logo" src="{{ block.settings.logo | image_url: width: 40, height: 40, crop: 'center' }}" alt="Logo" width="40" height="40">
+            {% else %}
+              <img class="logo" src="{{ 'product_collection_2.png' | asset_url }}" alt="Logo Placeholder" width="40" height="40">
+            {% endif %}
+          </div>
+          <a href="{{ block.settings.product_link_1 }}">
+            {% if block.settings.product_image_1 != blank %}
+              <img src="{{ block.settings.product_image_1 | image_url: width: 800 }}" alt="Product 1" width="800" height="500">
+            {% else %}
+              <img src="{{ 'product_collection_1.png' | asset_url }}" alt="Placeholder Image" width="800" height="500">
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <!-- Repeat for Product Item 2 with respective settings -->
+      <!-- Product Item 2 -->
+      <div class="product-item">
+        <div class="product-image-container">
+          <!-- Conditional display for desktop logo and text, adjust class addition based on "show_logo_desktop" -->
+          <div class="logo-and-text-container desktop-only {% unless block.settings.show_logo_desktop %}desktop-hidden{% endunless %}" style="color: {{ block.settings.text_color }};">
+            {% if block.settings.logo != blank %}
+              <img class="logo" src="{{ block.settings.logo | image_url: width: 40, height: 40, crop: 'center' }}" alt="Logo" width="40" height="40">
+            {% else %}
+              <img class="logo" src="{{ 'product_collection_2.png' | asset_url }}" alt="Logo Placeholder" width="40" height="40">
+            {% endif %}
+            <span class="special-text">{{ block.settings.text_2 }}</span>
+          </div>
+
+          <!-- Conditional text container display based on the desktop logo setting -->
+          <div class="text-container {% if block.settings.show_logo_desktop %}desktop-hidden{% else %}desktop-shown{% endif %}" data-text-position-desktop="{{ block.settings.text_position_desktop }}" data-text-position-mobile="{{ block.settings.text_position_mobile }}">
+            <a href="{{ block.settings.product_link_2 }}" class="chevron-link">
+              <svg class="chevron" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.9393 0.93934C23.5251 0.353553 24.4749 0.353553 25.0607 0.93934L47.6066 23.4853C48.1924 24.0711 48.1924 25.0208 47.6066 25.6066C47.0208 26.1924 46.0711 26.1924 45.4853 25.6066L24 4.12132L2.51472 25.6066C1.92893 26.1924 0.979185 26.1924 0.393403 25.6066C-0.192379 25.0208 -0.192379 24.0711 0.393403 23.4853L22.9393 0.93934ZM22.5 3L22.5 2L25.5 2L25.5 3L22.5 3Z" fill="{{ block.settings.chevron_color }}"/>
+              </svg>
+            </a>
+            <span class="image-text" style="color: {{ block.settings.text_color }}; font-size: {{ block.settings.font_size }}px;">{{ block.settings.text_2 }}</span>
+          </div>
+          <!-- Logo for mobile only -->
+          <div class="logo-container mobile-only" style="display: {% if block.settings.show_logo_mobile %}block{% else %}none{% endif %};">
+            {% if block.settings.logo != blank %}
+              <img class="logo" src="{{ block.settings.logo | image_url: width: 40, height: 40, crop: 'center' }}" alt="Logo" width="40" height="40">
+            {% else %}
+              <img class="logo" src="{{ 'product_collection_2.png' | asset_url }}" alt="Logo Placeholder" width="40" height="40">
+            {% endif %}
+          </div>
+          <a href="{{ block.settings.product_link_2 }}">
+            {% if block.settings.product_image_2 != blank %}
+              <img src="{{ block.settings.product_image_2 | image_url: width: 800 }}" alt="Product 2" width="800" height="500">
+            {% else %}
+              <img src="{{ 'product_collection_2.png' | asset_url }}" alt="Placeholder Image" width="800" height="500">
+            {% endif %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+"name": "Product Showcase",
+"target": "section",
+"settings": [
+{
+"type": "header",
+"content": "Logo"
+},
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Logo Image"
+},
+{
+"type": "checkbox",
+"id": "show_logo_desktop",
+"label": "Show Logo on Desktop",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_logo_mobile",
+"label": "Show Logo on Mobile",
+"default": true
+},
+{
+"type": "header",
+"content": "Chevron"
+},
+{
+"type": "checkbox",
+"id": "show_chevron",
+"label": "Show Chevron on Mobile",
+"default": true
+},
+{
+"type": "color",
+"id": "chevron_color",
+"label": "Chevron Color",
+"default": "#FFFFFF"
+},
+{
+"type": "header",
+"content": "Text"
+},
+{
+"type": "color",
+"id": "text_color",
+"label": "Text Color",
+"default": "#FFFFFF"
+},
+{
+"type": "number",
+"id": "font_size",
+"label": "Font Size",
+"default": 16
+},
+{
+"type": "header",
+"content": "Product 1"
+},
+{
+"type": "text",
+"id": "text_1",
+"label": "Text",
+"default": "SHOP WOMEN"
+},
+{
+"type": "range",
+"id": "text_position_desktop",
+"label": "Text Position (Desktop)",
+"min": 0,
+"max": 100,
+"default": 50,
+"unit": "%"
+},
+{
+"type": "range",
+"id": "text_position_mobile",
+"label": "Text Position (Mobile)",
+"min": 0,
+"max": 100,
+"default": 20,
+"unit": "%"
+},
+{
+"type": "image_picker",
+"id": "product_image_1",
+"label": "Image"
+},
+{
+"type": "url",
+"id": "product_link_1",
+"label": "Link"
+},
+{
+"type": "header",
+"content": "Product 2"
+},
+{
+"type": "text",
+"id": "text_2",
+"label": "Text",
+"default": "SHOP MEN"
+},
+{
+"type": "image_picker",
+"id": "product_image_2",
+"label": "Image"
+},
+{
+"type": "url",
+"id": "product_link_2",
+"label": "Link"
+}
+]
+}
+{% endschema %}

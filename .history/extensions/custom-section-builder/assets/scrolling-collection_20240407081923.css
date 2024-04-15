@@ -1,0 +1,160 @@
+:root {
+    --background-color: #fefbd7;
+    --subtitle-background-color: #005ea2;
+    --subtitle-text-color: #ffffff;
+    --title-text-color: #121212;
+    --title-size: 36px;
+    --button-color: #000000;
+    --button-text-color: #ffffff;
+    --card-background-color: #ffffff;
+    --card-title-background-color: #f7f7f7;
+    --card-title-text-color: #333333;
+}
+
+body, h1, h2, h3, p, .subtitle-btn, .shop-now-btn, .main-title, .product-title {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-font-family), sans-serif;
+    font-weight: var(--text-font-weight);
+    font-style: var(--text-font-style);
+}
+
+.collection-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Adjusted for alignment */
+    border-radius: 12px;
+    margin: 0; /* Adjusted for full width */
+    background-color: var(--background-color);
+    overflow: hidden;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    height: auto; /* Adjusted for content */
+    width: 100vw; /* Ensures full viewport width */
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+.collection-grid-text {
+    text-align: left; /* Ensures text is left-aligned */
+    width: 100%; /* Full width within container */
+    padding: 0 20px; /* Padding applied only on the sides */
+    box-sizing: border-box; /* Padding included in the width */
+}
+
+.subtitle-btn {
+    background-color: var(--subtitle-background-color);
+    color: var(--subtitle-text-color);
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-left: 20px; /* Added for alignment */
+}
+
+.shop-now-btn {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-radius: 24px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 20px 0 20px 20px; /* Adjusted for alignment and spacing */
+}
+
+.main-title {
+    font-size: var(--title-size);
+    color: var(--title-text-color);
+    margin: 20px 0;
+    padding-left: 20px; /* Left aligns title */
+}
+
+.product-card {
+    background-color: var(--card-background-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width on mobile, adjusted in media queries for desktop */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 10px 0; /* Provides spacing between cards */
+    padding: 0;
+}
+
+.product-title {
+    text-align: center;
+    background-color: var(--card-title-background-color);
+    color: var(--card-title-text-color);
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    width: 100%; /* Ensures title spans the full width of the card */
+}
+
+.product-image-container, .product-image {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 1025px) {
+    .collection-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 50px 20px; /* Adjusts padding to ensure space around items */
+        width: calc(100% - 40px); /* Adjusts width to account for padding */
+        max-width: 1200px; /* Limits the maximum width */
+        margin: 0 auto; /* Centers the grid in the viewport */
+    }
+
+    .product-card {
+        width: calc(33.333% - 40px); /* Adjusts card width for 3 per row with spacing */
+        margin: 10px; /* Spacing between cards */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .collection-grid {
+        padding: 30px 20px; /* Adjusts padding to ensure space around items */
+        flex-direction: row;
+        justify-content: space-between;
+        width: calc(100% - 40px); /* Adjusts width to account for padding */
+    }
+
+    .product-card {
+        width: calc(50% - 40px); /* Adjusts card width for 2 per row with spacing */
+        margin: 10px; /* Spacing between cards */
+    }
+}
+
+@media (max-width: 767px) {
+    .collection-grid {
+        padding: 20px; /* Uniform padding */
+    }
+
+    .collection-grid-text, .subtitle-btn, .shop-now-btn, .main-title {
+        padding: 0 0 0 20px; /* Ensures content is aligned with the grid's left edge */
+    }
+
+    .product-card {
+        width: 100%; /* Ensures card takes full width */
+        margin: 10px 0; /* Adjusts vertical spacing */
+    }
+}

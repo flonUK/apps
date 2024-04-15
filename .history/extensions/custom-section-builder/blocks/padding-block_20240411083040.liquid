@@ -1,0 +1,34 @@
+{% schema %}
+{
+  "name": "Padding Block",
+  "target" : "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical Padding",
+      "min": 0,
+      "max": 150,
+      "step": 1,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "content",
+      "label": "Content Text",
+      "default": "This is a custom content block with adjustable padding."
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'padding-block.css' | asset_url | stylesheet_tag }}
+
+
+<div class="adedayo-appname-padding-block" style="padding-top: {{ section.settings.padding_vertical }}px; padding-bottom: {{ section.settings.padding_vertical }}px; text-align: center;">
+    <div class="adedayo-appname-padding-block__content">
+      <p>{{ section.settings.content }}</p>
+    </div>
+  </div>
+  

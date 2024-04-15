@@ -1,0 +1,53 @@
+:root {
+  --adedayo-scrolling-bg-color: {{ block.settings.background_color }};
+  --adedayo-scrolling-height: {{ block.settings.scrolling_height }}px;
+  --adedayo-scrolling-speed: {{ block.settings.scrolling_speed }}s;
+  --adedayo-scrolling-font-weight: {{ block.settings.text_font_weight }};
+  --adedayo-scrolling-font-size: {{ block.settings.font_size }}px;
+  --adedayo-scrolling-font-family: {{ block.settings.text_font.family }};
+  --adedayo-scrolling-text-color: {{ block.settings.text_color }};
+}
+
+
+
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--adedayo-scrolling-bg-color);
+  height: var(--adedayo-scrolling-height);
+}
+
+.adedayo-scrolling-bar-content {
+  display: inline-flex;
+  animation: adedayo-scrolling-bar-scroll-left var(--adedayo-scrolling-speed) linear infinite;
+  padding: 1.6rem 0;
+  letter-spacing: 6px;
+  line-height: 1;
+  font-weight: var(--adedayo-scrolling-font-weight);
+  font-size: var(--adedayo-scrolling-font-size);
+  font-family: var(--adedayo-scrolling-font-family);
+  color: var(--adedayo-scrolling-text-color);
+}
+
+.adedayo-scrolling-bar-link {
+  text-decoration: none;
+}
+
+.adedayo-scrolling-bar-content span,
+.adedayo-scrolling-bar-content img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes adedayo-scrolling-bar-scroll-left {
+  to {
+    transform: translateX(-100%);
+  }
+}

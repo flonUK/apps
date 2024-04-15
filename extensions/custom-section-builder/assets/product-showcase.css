@@ -1,0 +1,218 @@
+
+
+.product-showcase-app .product-showcase {
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide logo and special text on desktop when "Show Logo on Desktop" is unclicked */
+.product-showcase-app .logo-and-text-container.desktop-only.desktop-hidden,
+.product-showcase-app .logo-container.desktop-only.desktop-hidden {
+  display: none !important;
+}
+
+.product-showcase-app .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  justify-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.product-showcase-app .product-item {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.product-showcase-app .product-image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-showcase-app .product-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-showcase-app .logo-container,
+.product-showcase-app .logo-and-text-container {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 2;
+  display: flex;
+  align-items: start;
+}
+
+.product-showcase-app .logo-container.mobile-only,
+.product-showcase-app .logo-and-text-container.mobile-only {
+  display: none;
+}
+
+.product-showcase-app .logo,
+.product-showcase-app .logo-and-text-container .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.product-showcase-app .logo-and-text-container .special-text {
+  font-size: 12px;
+  margin-left: 8px;
+  align-self: start;
+  font-weight: bold;
+  color: inherit;
+}
+
+.product-showcase-app .text-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-showcase-app .chevron {
+  width: 48px;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+.product-showcase-app .image-text {
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  text-align: center;
+  background-color: transparent;
+  transition: text-decoration 0.3s ease;
+}
+
+.product-showcase-app .image-text:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 999px) {
+  .product-showcase-app div.page-width {
+    padding-left: 0px !important;
+    padding: 0px !important;
+  }
+
+  .product-showcase-app .product-showcase {
+    height: 90vh;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .product-showcase-app .shopify-section .product-showcase {
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-showcase-app .product-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    height: 100%;
+  }
+
+  .product-showcase-app .product-item {
+    display: none;
+    height: 100%;
+  }
+
+  .product-showcase-app .product-item.active {
+    display: block;
+  }
+
+  .product-showcase-app .product-image-container {
+    height: 100%;
+  }
+
+  .product-showcase-app .product-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-showcase-app .logo-and-text-container.desktop-only {
+    display: none !important;
+  }
+
+  .product-showcase-app .logo-container.mobile-only {
+    display: none;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .product-showcase-app .chevron-link {
+    display: block;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .product-showcase-app .text-container {
+    bottom: 2rem;
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-showcase-app .chevron {
+    margin-bottom: 8px;
+  }
+
+  .product-showcase-app .image-text {
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .product-showcase-app .product-showcase,
+  .product-showcase-app .product-grid,
+  .product-showcase-app .product-item {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .product-showcase-app .product-image-container {
+    height: 100%;
+  }
+
+  .product-showcase-app .product-item img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .product-showcase-app .logo-and-text-container.desktop-only {
+    display: flex;
+  }
+
+  .product-showcase-app .text-container.desktop-hidden {
+    display: none;
+  }
+
+  .product-showcase-app .text-container {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .product-showcase-app .chevron-link {
+    display: none;
+  }
+
+  .product-showcase-app .logo-container.mobile-only {
+    display: none !important;
+  }
+}

@@ -1,0 +1,57 @@
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Products",
+      "limit": 3
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "checkbox",
+      "id": "curved_edges",
+      "label": "Enable Curved Edges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "number",
+      "id": "title_font_size",
+      "label": "Title Font Size",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price Color",
+      "default": "#888888"
+    },
+    {
+      "type": "number",
+      "id": "price_font_size",
+      "label": "Price Font Size",
+      "default": 16
+    }
+  ]
+}
+{% endschema %}
+

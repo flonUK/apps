@@ -1,0 +1,27 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% if block.settings.product != blank %}
+    <div class="product-spotlight-card" style="background-color: {{ block.settings.card_bg_color }};">
+      <div class="product-spotlight-image-container" data-product-handle="{{ block.settings.product.handle }}"></div>
+      <div class="product-spotlight-title"></div>
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+   
+  ]
+}
+{% endschema %}

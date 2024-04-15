@@ -1,0 +1,34 @@
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 40px;
+  }
+  
+  .product-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .product-card {
+      width: 100%;
+    }
+  }
+  

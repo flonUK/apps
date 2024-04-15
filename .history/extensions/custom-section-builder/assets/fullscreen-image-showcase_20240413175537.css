@@ -1,0 +1,52 @@
+.adedayo-fullscreen-image-showcase {
+  position: relative;
+  width: 100vw;
+  height: var(--showcase-height, 100vh);
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.adedayo-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.adedayo-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.adedayo-fullscreen-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.adedayo-image-text {
+  color: #fff;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.adedayo-image-text:hover {
+  text-decoration: none;
+}
+
+.adedayo-image-text,
+.adedayo-image-text:hover {
+  text-decoration: none !important;
+}

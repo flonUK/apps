@@ -1,0 +1,71 @@
+{% schema %}
+{
+  "name": "Testimonial ",
+  "class": "adedayo-testimonial-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "quote",
+      "label": "Testimonial Quote",
+      "default": "After supply became a challenge, the simple Back In Stock app saved us from losing thousands in revenue."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author Name",
+      "default": "Steve Spillman, Growth Product Manager, Thousand"
+    },
+    {
+      "type": "text",
+      "id": "app_rating",
+      "label": "App Rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Number of Reviews",
+      "default": "(1,940)"
+    },
+    {
+      "type": "text",
+      "id": "app_name",
+      "label": "App Name",
+      "default": "Appikon - Back In Stock"
+    },
+    {
+      "type": "image_picker",
+      "id": "helmet_image",
+      "label": "Helmet Image",
+      "info": "Upload the image of the person adjusting the helmet."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Testimonial",
+      "category": "Testimonial"
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'testimonial-section.css' | asset_url | stylesheet_tag }}
+
+<div class="adedayo-testimonial-section">
+  <div class="adedayo-testimonial-container">
+    <div class="adedayo-testimonial-content">
+      <p class="adedayo-testimonial-quote">{{ section.settings.quote }}</p>
+      <p class="adedayo-testimonial-author">{{ section.settings.author }}</p>
+      <div class="adedayo-testimonial-rating">
+        <span class="adedayo-testimonial-app-rating">{{ section.settings.app_rating }}</span>
+        <span class="adedayo-testimonial-review-count">{{ section.settings.review_count }}</span>
+      </div>
+      <p class="adedayo-testimonial-appname">{{ section.settings.app_name }}</p>
+    </div>
+    <div class="adedayo-testimonial-image">
+      {% if section.settings.helmet_image != blank %}
+        <img src="{{ section.settings.helmet_image | img_url: 'master' }}" alt="{{ section.settings.author }}" class="adedayo-testimonial-helmet">
+      {% endif %}
+    </div>
+  </div>
+</div>

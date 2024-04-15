@@ -1,0 +1,197 @@
+{% schema %}
+{
+  "name": "Image Banner",
+  "class": "image-banner",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "First Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Upload First Image"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "First Image Heading Text",
+      "default": "Light and Airy"
+    },
+    {
+      "type": "text",
+      "id": "subheading1",
+      "label": "First Image Subheading Text",
+      "default": "Chic bottoms built for the warmer days of spring"
+    },
+    {
+      "type": "range",
+      "id": "text_vertical_position_1",
+      "label": "First Image Text Vertical Position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "link1",
+      "label": "First Image Link (URL)"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_1",
+      "label": "First Image Heading Font Size",
+      "min": 12,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color_1",
+      "label": "First Image Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size_1",
+      "label": "First Image Subheading Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "subheading_color_1",
+      "label": "First Image Subheading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Second Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Upload Second Image"
+    },
+    
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Second Image Heading Text",
+      "default": "Color in Bloom"
+    },
+    {
+      "type": "text",
+      "id": "subheading2",
+      "label": "Second Image Subheading Text",
+      "default": "Create your personal palette with color blocking"
+    },
+    {
+      "type": "range",
+      "id": "text_vertical_position_2",
+      "label": "Second Image Text Vertical Position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_2",
+      "label": "Second Image Heading Font Size",
+      "min": 12,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color_2",
+      "label": "Second Image Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size_2",
+      "label": "Second Image Subheading Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "subheading_color_2",
+      "label": "Second Image Subheading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Section Height",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}
+
+<!-- Image Banner Section -->
+<div class="image-banner" style="--adedayo-image-banner-section-height: {{ block.settings.section_height }}vh;">
+  <div class="adedayo-image-banner-image-container">
+    <!-- First Image Card -->
+    <div class="adedayo-image-banner-image-card">
+      <a href="{{ block.settings.link1 }}">
+        {% assign image1_width = block.settings.image1.width | default: 1024 %}
+        {% assign image1_height = block.settings.image1.height | default: 768 %}
+        <img src="{{ block.settings.image1 | image_url: width: 1024 }}" alt="{{ block.settings.heading1 }}" width="{{ image1_width }}" height="{{ image1_height }}">
+        <div class="adedayo-image-banner-text-overlay" style="--adedayo-image-banner-text-vertical-position: {{ block.settings.text_vertical_position_1 }}%;">
+          <h2 class="adedayo-image-banner-heading" style="--adedayo-image-banner-heading-color: {{ block.settings.heading_color_1 }}; --adedayo-image-banner-heading-font-size: {{ block.settings.heading_font_size_1 }}px;">
+            {{ block.settings.heading1 }}
+          </h2>
+          <p class="adedayo-image-banner-subheading" style="--adedayo-image-banner-subheading-color: {{ block.settings.subheading_color_1 }}; --adedayo-image-banner-subheading-font-size: {{ block.settings.subheading_font_size_1 }}px;">
+            {{ block.settings.subheading1 }}
+          </p>
+        </div>
+      </a>
+    </div>
+    <!-- Second Image Card -->
+    <div class="adedayo-image-banner-image-card">
+      <a href="{{ block.settings.link2 }}">
+        {% assign image2_width = block.settings.image2.width | default: 1024 %}
+        {% assign image2_height = block.settings.image2.height | default: 768 %}
+        <img src="{{ block.settings.image2 | image_url: width: 1024 }}" alt="{{ block.settings.heading2 }}" width="{{ image2_width }}" height="{{ image2_height }}">
+        <div class="adedayo-image-banner-text-overlay" style="--adedayo-image-banner-text-vertical-position: {{ block.settings.text_vertical_position_2 }}%;">
+          <h2 class="adedayo-image-banner-heading" style="--adedayo-image-banner-heading-color: {{ block.settings.heading_color_2 }}; --adedayo-image-banner-heading-font-size: {{ block.settings.heading_font_size_2 }}px;">
+            {{ block.settings.heading2 }}
+          </h2>
+          <p class="adedayo-image-banner-subheading" style="--adedayo-image-banner-subheading-color: {{ block.settings.subheading_color_2 }}; --adedayo-image-banner-subheading-font-size: {{ block.settings.subheading_font_size_2 }}px;">
+            {{ block.settings.subheading2 }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Links to the CSS and JavaScript files -->
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'image-banner.js' | asset_url }}" defer></script>

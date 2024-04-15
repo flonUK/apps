@@ -1,0 +1,63 @@
+/* Ensures variables are defined globally and set dynamically */
+:root {
+  --adedayo-ddc-background-color: #000; /* Default black background */
+  --adedayo-ddc-text-color: #fff; /* High contrast text color */
+  --adedayo-ddc-button-color: #ffffff; /* Default button color */
+  --adedayo-ddc-button-text-color: #000; /* Default button text color */
+  --adedayo-ddc-gap: 20px; /* Default gap */
+  --adedayo-ddc-button-padding: 10px; /* Default button padding */
+  --adedayo-ddc-button-border-radius: 5px; /* Default button border-radius */
+}
+
+/* General styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.adedayo-ddc-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--adedayo-ddc-gap);
+    margin-bottom: var(--adedayo-ddc-bottom-margin, 20px);
+}
+
+.adedayo-ddc-card {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.adedayo-ddc-card-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    top: var(--adedayo-ddc-content-vertical-alignment);
+    text-align: var(--adedayo-ddc-content-alignment);
+    color: var(--adedayo-ddc-text-color);
+}
+
+.adedayo-ddc-button {
+    background-color: var(--adedayo-ddc-button-color);
+    color: var(--adedayo-ddc-button-text-color);
+    padding: var(--adedayo-ddc-button-padding);
+    border-radius: var(--adedayo-ddc-button-border-radius);
+    margin: 0.5em;
+    display: inline-block;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .adedayo-ddc-cards,
+    .adedayo-ddc-card {
+        flex-direction: column;
+    }
+}

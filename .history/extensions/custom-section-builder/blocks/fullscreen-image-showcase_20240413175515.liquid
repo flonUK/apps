@@ -1,0 +1,164 @@
+{{ 'fullscreen-image-showcase.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'fullscreen-image-showcase.js' | asset_url }}" defer></script>
+
+<div class="adedayo-fullscreen-image-showcase" data-show-text="{{ block.settings.show_text }}" data-text-position="{{ block.settings.text_position }}" data-text-color="{{ block.settings.text_color }}" data-font-size-desktop="{{ block.settings.font_size_desktop }}" data-font-size-mobile="{{ block.settings.font_size_mobile }}" data-font-family="{{ block.settings.text_font.family }}" data-font-weight="{{ block.settings.text_font_weight }}" data-font-style="{{ block.settings.text_font_style }}">
+  <div class="adedayo-image-container">
+    {% case block.settings.image_source %}
+      {% when 'product' %}
+        {% if block.settings.product != blank %}
+          <a href="{{ block.settings.product.url }}" class="adedayo-image-link">
+            <img src="{{ block.settings.product.featured_image | image_url: width: 1600 }}" alt="{{ block.settings.product.title | escape }}" class="adedayo-img" width="1600" height="{{ 1600 | divided_by: block.settings.product.featured_image.aspect_ratio | round }}">
+          </a>
+        {% else %}
+          <div class="adedayo-placeholder-image">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+      {% else %}
+        {% if block.settings.image != blank %}
+          <a href="{{ block.settings.image_link }}" class="adedayo-image-link">
+            <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.image.alt | escape }}" class="adedayo-img" width="1600" height="{{ 1600 | divided_by: block.settings.image.aspect_ratio | round }}">
+          </a>
+        {% else %}
+          <div class="adedayo-placeholder-image">
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+    {% endcase %}
+  </div>
+  <div class="adedayo-fullscreen-text-container">
+    <span class="adedayo-image-text">{{ block.settings.text }}</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Fullscreen Image",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "radio",
+      "id": "image_source",
+      "label": "Image Source",
+      "options": [
+        {
+          "value": "image",
+          "label": "Custom Image"
+        },
+        {
+          "value": "product",
+          "label": "Product Image"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Custom Image"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text",
+      "label": "Show Text",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "fullscreen image"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_position",
+      "label": "Text Position",
+      "min": 0,
+      "max": 100,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Font",
+      "default": "sans-serif"
+    },
+    {
+      "type": "select",
+      "id": "text_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "text_font_style",
+      "label": "Font Style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "italic",
+          "label": "Italic"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "number",
+      "id": "font_size_desktop",
+      "label": "Font Size (Desktop)",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "font_size_mobile",
+      "label": "Font Size (Mobile)",
+      "default": 40
+    }
+  ]
+}
+{% endschema %}
+
+

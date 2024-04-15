@@ -1,0 +1,42 @@
+{% schema %}
+{
+  "name": "Product Merchandising",
+  "class": "product-merchandising",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Select Products",
+      "limit": 3
+    },
+    {
+      "type": "header",
+      "content": "Variant Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_option",
+      "label": "Show Color Option",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category_option",
+      "label": "Show Category Option",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_metafields",
+      "label": "Show Metafields",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+

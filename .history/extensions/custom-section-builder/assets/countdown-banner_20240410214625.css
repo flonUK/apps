@@ -1,0 +1,35 @@
+.adedayo-countdown-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Border box model for padding */
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%; /* Ensure content respects the max-width */
+}
+
+.adedayo-countdown-banner__headline, .adedayo-countdown-banner__description, .adedayo-countdown-banner__timer, .adedayo-countdown-banner__link {
+  width: 100%; /* Ensure elements take full width of their container */
+  display: block; /* Display block for proper spacing */
+  margin: 0 auto; /* Centering if needed */
+}
+
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer span {
+  display: inline-block;
+  margin: 0 5px;
+  font-weight: bold;
+}

@@ -1,0 +1,23 @@
+.product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-details img {
+  max-width: 100%;
+  height: auto;
+}
+
+.add-to-cart {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

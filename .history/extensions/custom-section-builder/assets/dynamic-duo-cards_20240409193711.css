@@ -1,0 +1,114 @@
+/* General Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensures variables are defined globally if they're not set dynamically */
+:root {
+--adedayo-ddc-background-color: #000; /* Default black background */
+--adedayo-ddc-text-color: #fff; /* High contrast text color */
+--adedayo-ddc-button-color: #ffffff; /* Default button color */
+--adedayo-ddc-button-text-color: #000; /* Default button text color */
+--adedayo-ddc-gap: 20px; /* Default gap */
+--adedayo-ddc-button-padding: 10px; /* Default button padding */
+--adedayo-ddc-button-border-radius: 5px; /* Default button border-radius */
+}
+
+/* Custom Full Width Adjustments */
+.adedayo-ddc-custom-full-width {
+padding-left: 0 !important;
+padding-right: 0 !important;
+}
+
+/* Styles for the custom app blocks container */
+.adedayo-ddc-cards {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: var(--adedayo-ddc-gap);
+}
+
+/* Layout Styles for Full Width and Boxed */
+.adedayo-ddc-cards.fullwidth .adedayo-ddc-card,
+.adedayo-ddc-cards.boxed .adedayo-ddc-card {
+flex: 1 0 calc(50% - var(--adedayo-ddc-gap));
+}
+
+.adedayo-ddc-cards.boxed .adedayo-ddc-card:last-child {
+margin-right: 0;
+}
+
+@media (min-width: 769px) {
+.adedayo-ddc-cards.boxed {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+}
+
+/* Mobile-specific Styles */
+@media (max-width: 768px) {
+.adedayo-ddc-cards,
+.adedayo-ddc-cards.boxed,
+.adedayo-ddc-cards.fullwidth {
+  flex-direction: column;
+}
+
+.adedayo-ddc-cards .adedayo-ddc-card {
+  flex: 0 0 100%;
+}
+}
+
+/* Card and Content Styles */
+.adedayo-ddc-card {
+position: relative;
+width: 100%;
+background-size: cover;
+background-position: center;
+text-align: var(--adedayo-ddc-content-alignment);
+}
+
+.adedayo-ddc-card-content {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+width: 80%;
+top: var(--adedayo-ddc-content-vertical-alignment);
+color: var(--adedayo-ddc-text-color);
+}
+
+/* Button Styles */
+.adedayo-ddc-button {
+  background-color: var(--adedayo-ddc-button-color);
+  color: var(--adedayo-ddc-button-text-color);
+  padding: var(--adedayo-ddc-button-padding);
+  /* Adjust the border-radius for a pill shape */
+  border-radius: 999px; /* This effectively ensures a pill shape */
+  margin: 0.5em;
+  display: inline-block;
+  font-size: 0.9em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Additional Size Modifiers */
+.adedayo-ddc-card-medium {
+min-height: 60vh;
+}
+
+.adedayo-ddc-card-large {
+min-height: 100vh;
+}
+
+
+.adedayo-ddc-card-content h1,
+.adedayo-ddc-card-content h2,
+.adedayo-ddc-card-content h3,
+.adedayo-ddc-card-content h4,
+.adedayo-ddc-card-content h5,
+.adedayo-ddc-card-content h6 {
+  color: var(--adedayo-ddc-text-color);
+}

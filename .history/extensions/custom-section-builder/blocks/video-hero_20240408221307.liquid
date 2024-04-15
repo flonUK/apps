@@ -1,0 +1,230 @@
+{% schema %}
+{
+"name": "Video Hero",
+"class": "video-hero",
+"target": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+{
+"type": "header",
+"content": "Video Settings"
+},
+{
+"type": "select",
+"id": "video_source",
+"label": "Video Source",
+"options": [
+{
+"value": "upload",
+"label": "Upload a Video"
+},
+{
+"value": "youtube",
+"label": "YouTube Video URL"
+},
+{
+"value": "vimeo",
+"label": "Vimeo Video URL"
+}
+],
+"default": "upload"
+},
+{
+"type": "video",
+"id": "video",
+"label": "Uploaded Video",
+"info": "Upload a video file."
+},
+{
+"type": "text",
+"id": "youtube_url",
+"label": "YouTube Video URL",
+"info": "Enter the YouTube video URL."
+},
+{
+"type": "text",
+"id": "vimeo_url",
+"label": "Vimeo Video URL",
+"info": "Enter the Vimeo video URL."
+},
+{
+"type": "range",
+"id": "video_hero_height",
+"label": "Video Height",
+"min": 50,
+"max": 100,
+"step": 5,
+"unit": "vh",
+"default": 80
+},
+{
+"type": "video",
+"id": "mobile_video",
+"label": "Mobile Video",
+"info": "Upload a vertical (9:16) video for mobile."
+},
+{
+"type": "checkbox",
+"id": "enable_mobile_video",
+"label": "Use Mobile Video",
+"default": false,
+"info": "Switches to the mobile video for mobile viewers."
+},
+{
+"type": "image_picker",
+"id": "cover_image",
+"label": "Cover Image",
+"info": "Select a cover image to display before the video plays."
+},
+{
+"type": "text",
+"id": "description",
+"label": "Video Description",
+"info": "Provide a description for the video, improving SEO and accessibility."
+},
+{
+"type": "header",
+"content": "Text Settings"
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "Your Heading Here"
+},
+{
+"type": "color",
+"id": "heading_color",
+"label": "Heading Color",
+"default": "#FFFFFF"
+},
+{
+"type": "text",
+"id": "subtext",
+"label": "Subtext",
+"default": "Your Subtext Here"
+},
+{
+"type": "color",
+"id": "subtext_color",
+"label": "Subtext Color",
+"default": "#FFFFFF"
+},
+{
+"type": "header",
+"content": "Button Settings"
+},
+{
+"type": "text",
+"id": "button_text",
+"label": "Button Text",
+"default": "Learn More"
+},
+{
+"type": "url",
+"id": "button_link",
+"label": "Button Link"
+},
+{
+"type": "color",
+"id": "button_color",
+"label": "Button Color",
+"default": "#FFFFFF"
+},
+{
+"type": "color",
+"id": "button_text_color",
+"label": "Button Text Color",
+"default": "#000000"
+},
+{
+"type": "color",
+"id": "button_hover_color",
+"label": "Button Hover Color",
+"default": "#000000"
+},
+{
+"type": "color",
+"id": "button_hover_text_color",
+"label": "Button Hover Text Color",
+"default": "#FFFFFF"
+},
+{
+"type": "checkbox",
+"id": "enable_rounded_button",
+"label": "Rounded Button",
+"default": true,
+"info": "Enables rounded corners for the button."
+},
+{
+"type": "header",
+"content": "Mobile Display Settings"
+
+},
+{
+"type": "checkbox",
+"id": "show_text_on_mobile",
+"label": "Display Text on Mobile",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_button_on_mobile",
+"label": "Display Button on Mobile",
+"default": true
+},
+{
+"type": "header",
+"content": "Layout Settings"
+},
+{
+"type": "range",
+"id": "padding_top",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "Top Padding",
+"default": 20
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "Bottom Padding",
+"default": 20
+}
+]
+}
+{% endschema %}
+
+{{ 'video-hero.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'video-hero.js' | asset_url }}" defer="defer"></script> <div class="video-hero" style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px; --video-height: {{ section.settings.video_hero_height }}vh;"> <div class="video-wrapper"> {% if section.settings.video_source == 'upload' %} {% assign video = section.settings.video %} {% if video != blank %} <video class="video-hero__video" playsinline {% if section.settings.enable_mobile_video %}data-mobile-video="{{ section.settings.mobile_video | video_url }}"{% endif %}> {% for source in video.sources %} <source src="{{ source.url }}" type="{{ source.mime_type }}"> {% endfor %} Your browser does not support the video tag. </video> {% endif %} {% elsif section.settings.video_source == 'youtube' %} {% if section.settings.youtube_url != blank %} <iframe class="video-hero__video" src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {% endif %} {% elsif section.settings.video_source == 'vimeo' %} {% if section.settings.vimeo_url != blank %} <iframe class="video-hero__video" src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> {% endif %} {% endif %}
+{% if section.settings.cover_image != blank %}
+  <div class="video-hero__cover">
+    <img class="video-hero__cover-image" src="{{ section.settings.cover_image | img_url: 'master' }}" alt="{{ section.settings.description | escape }}">
+    <button class="video-hero__play-button" aria-label="Play Video">
+      <svg viewBox="0 0 24 24">
+        <path fill="currentColor" d="M8 5v14l11-7z"/>
+      </svg>
+    </button>  
+  </div>
+{% endif %}
+</div> <div class="video-hero__content"> {% unless section.settings.heading == blank %} <h2 class="video-hero__heading" style="color: {{ section.settings.heading_color }};"> {{ section.settings.heading }} </h2> {% endunless %}
+{% unless section.settings.subtext == blank %}
+  <div class="video-hero__subtext" style="color: {{ section.settings.subtext_color }};">
+    {{ section.settings.subtext }}
+  </div>  
+{% endunless %}
+
+{% if section.settings.button_text != blank and section.settings.button_link != blank %}
+  <a class="video-hero__button button{% if section.settings.enable_rounded_button %} button--rounded{% endif %}" href="{{ section.settings.button_link }}" style="color: {{ section.settings.button_text_color }}; background-color: {{ section.settings.button_color }};">
+    {{ section.settings.button_text }}
+  </a>
+{% endif %}

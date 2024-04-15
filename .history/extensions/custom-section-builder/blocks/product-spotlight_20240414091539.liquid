@@ -1,0 +1,53 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% if block.settings.product != blank %}
+    <div class="product-spotlight-card {% if block.settings.curved_edges %}curved-edges{% endif %}" style="background-color: {{ block.settings.card_bg_color }};">
+      <div class="product-spotlight-image-container">
+        {% for image in block.settings.product.images %}
+          <img src="{{ image | img_url: 'large' }}" alt="{{ block.settings.product.title }}" class="product-spotlight-image {% if forloop.first %}active{% endif %}">
+        {% endfor %}
+      </div>
+      <div class="product-spotlight-info">
+        <div class="product-spotlight-title">{{ block.settings.product.title | truncate: 20 }}</div>
+        {% if block.settings.show_price %}
+          <div class="product-spotlight-price">{{ block.settings.product.price | money }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "checkbox",
+      "id": "curved_edges",
+      "label": "Enable Curved Edges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

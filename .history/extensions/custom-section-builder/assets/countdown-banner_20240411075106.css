@@ -1,0 +1,64 @@
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: {{ block.settings.padding_top }}px; 
+  padding-bottom: {{ block.settings.padding_bottom }}px;
+  height: {{ block.settings.banner_height }}vh;
+  color: {{ block.settings.text_color }};
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.adedayo-countdown-banner__headline {
+  font-size: {{ block.settings.headline_size }}px;
+  color: {{ block.settings.headline_color }};
+  text-align: {{ block.settings.headline_alignment }};
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.adedayo-countdown-banner__description {
+  font-size: {{ block.settings.description_size }}px;
+  color: {{ block.settings.description_color }};
+  text-align: {{ block.settings.description_alignment }};
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer {
+  font-size: {{ block.settings.countdown_size }}px;
+  color: {{ block.settings.countdown_color }};
+  text-align: {{ block.settings.countdown_alignment }};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer-item {
+  display: inline-block;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.adedayo-countdown-banner__timer-separator {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.adedayo-countdown-banner__link {
+  color: {{ block.settings.button_text_color }};
+  background-color : {{ block.settings.button_background_color }};
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: {{ block.settings.button_pill_style | boolean ? '9999px' : '0' }};
+  display: inline-block;
+}

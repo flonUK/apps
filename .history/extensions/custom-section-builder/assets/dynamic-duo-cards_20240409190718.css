@@ -1,0 +1,56 @@
+/* Ensures variables are defined globally and set dynamically */
+:root {
+  --adedayo-ddc-text-color: #000; /* Default text color */
+  --adedayo-ddc-button-color: #ffffff; /* Default button background color */
+  --adedayo-ddc-button-text-color: #000000; /* Default button text color */
+  --adedayo-ddc-gap: 20px; /* Default gap between cards */
+  --adedayo-ddc-button-padding: 10px; /* Default button padding */
+  --adedayo-ddc-button-border-radius-square: 0px; /* Square button border radius */
+  --adedayo-ddc-button-border-radius-rounded: 25px; /* Rounded button border radius */
+}
+
+.adedayo-ddc-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--adedayo-ddc-gap);
+  margin-bottom: var(--adedayo-ddc-bottom-margin, 20px);
+}
+
+.adedayo-ddc-card {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.adedayo-ddc-card-content {
+  position: relative;
+  padding: var(--adedayo-ddc-gap);
+  color: var(--adedayo-ddc-text-color);
+  text-align: var(--adedayo-ddc-content-alignment, center);
+}
+
+.adedayo-ddc-heading {
+  color: var(--adedayo-ddc-text-color);
+}
+
+.adedayo-ddc-button {
+  background-color: var(--adedayo-ddc-button-color);
+  color: var(--adedayo-ddc-button-text-color);
+  padding: var(--adedayo-ddc-button-padding);
+  border-radius: var(--adedayo-ddc-button-border-radius-square);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.adedayo-ddc-rounded .adedayo-ddc-button {
+  border-radius: var(--adedayo-ddc-button-border-radius-rounded);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .adedayo-ddc-cards {
+    flex-direction: column;
+  }
+}

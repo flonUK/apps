@@ -1,0 +1,34 @@
+{% schema %}
+{
+  "name": "Product Card",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Select a Product"
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+<div class="product-card">
+  {% if settings.selected_product != blank %}
+    {% if settings.selected_product.variants.size > 0 %}
+      <div class="product-details">
+        <img src="{{ settings.selected_product.featured_image | img_url: 'medium' }}" alt="{{ settings.selected_product.title | escape }}">
+        <h2>{{ settings.selected_product.title }}</h2>
+        <p>{{ settings.selected_product.price | money }}</p>
+        <button class="add-to-cart" data-product-id="{{ settings.selected_product.variants.first.id }}">Add to Cart</button>
+      </div>
+    {% else %}
+      <p>The selected product has no available variants.</p>
+    {% endif %}
+  {% else %}
+    <p>No product selected.</p>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-card.js' | asset_url }}" defer></script>

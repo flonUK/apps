@@ -1,0 +1,91 @@
+<!-- This code should be wrapped inside a section file -->
+{% if section.blocks.size > 0 %}
+    <div class="scrolling-cards-container">
+      <div class="scrolling-cards" style="animation-duration: {{ section.settings.scroll_speed }}s;">
+        {% for block in section.blocks %}
+          <div class="scrolling-card">
+            <h2 class="card-title">{{ block.settings.title }}</h2>
+            {% if block.settings.image %}
+              <img class="card-image" src="{{ block.settings.image | img_url: '300x300' }}" alt="{{ block.settings.title | escape }}">
+            {% endif %}
+            <p class="card-text">{{ block.settings.text }}</p>
+            <div class="card-rating">{{ block.settings.rating }}</div>
+            <p class="card-description">{{ block.settings.description }}</p>
+            <a href="{{ block.settings.add_to_cart_link }}" class="card-button add-to-cart">Add to Cart</a>
+            <a href="{{ block.settings.shop_now_link }}" class="card-button shop-now">Shop Now</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>No cards available. Please add some cards.</p>
+  {% endif %}
+  
+  
+  
+  <!-- Include your CSS file -->
+  {{ 'scrolling-cards.css' | asset_url | stylesheet_tag }}
+  <!-- Include your JavaScript file -->
+  <script src="{{ 'scrolling-cards.js' | asset_url }}" defer></script>
+  
+  
+  {% schema %}
+  {
+    "name": "Scrolling Card",
+    "settings": [
+      {
+        "type": "range",
+        "id": "scroll_speed",
+        "label": "Scroll Speed",
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "default": 30,
+        "unit": "s"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Card Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Additional text here"
+      },
+      {
+        "type": "text",
+        "id": "rating",
+        "label": "Rating",
+        "default": "★★★★★"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Describe your product"
+      },
+      {
+        "type": "url",
+        "id": "add_to_cart_link",
+        "label": "Add to Cart Link",
+        "default": "#"
+      },
+      {
+        "type": "url",
+        "id": "shop_now_link",
+        "label": "Shop Now Link",
+      }
+    ],
+    "target": "section"
+  }
+  
+  
+{% endschema %}

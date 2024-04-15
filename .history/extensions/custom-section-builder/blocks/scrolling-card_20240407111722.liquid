@@ -1,0 +1,81 @@
+<div class="scrolling-cards-container">
+    <div class="scrolling-cards" style="animation-duration: {{ block.settings.scroll_speed }}s;">
+      {% for card in block.settings.cards %}
+        <div class="scrolling-card">
+          <h2 class="card-title">{{ card.title }}</h2>
+          <img class="card-image" src="{{ card.image | img_url: '300x300' }}" alt="{{ card.title | escape }}">
+          <p class="card-text">{{ card.text }}</p>
+          <div class="card-rating">{{ card.rating }}</div>
+          <p class="card-description">{{ card.description }}</p>
+          <a href="{{ card.add_to_cart_link }}" class="card-button add-to-cart">Add to Cart</a>
+          <a href="{{ card.shop_now_link }}" class="card-button shop-now">Shop Now</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <!-- Include your CSS file -->
+  {{ 'scrolling-cards.css' | asset_url | stylesheet_tag }}
+  <!-- Include your JavaScript file -->
+  <script src="{{ 'scrolling-cards.js' | asset_url }}" defer></script>
+  
+  
+  {% schema %}
+{
+  "name": "Scrolling Card",
+  
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Title Here"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Some quick example text"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "★★★★★"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "A description of the item"
+    },
+    {
+      "type": "url",
+      "id": "add_to_cart_link",
+      "label": "Add to Cart Link",
+      "default": "#"
+    },
+    {
+      "type": "url",
+      "id": "shop_now_link",
+      "label": "Shop Now Link",
+      "default": "#"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll Speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "default": 30,
+      "unit": "s"
+    }
+  ]
+}
+{% endschema %}

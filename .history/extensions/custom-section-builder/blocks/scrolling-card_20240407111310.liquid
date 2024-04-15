@@ -1,0 +1,86 @@
+<!-- Add to your theme app extension's liquid file -->
+<div class="scrolling-card" style="animation-duration: {{ block.settings.scroll_speed }}s;">
+    <div class="card-content">
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | img_url: '300x300' }}" alt="{{ block.settings.title | escape }}">
+      {% endif %}
+      <h3>{{ block.settings.title }}</h3>
+      <p>{{ block.settings.rating }}</p>
+      <p>{{ block.settings.description }}</p>
+      <a href="{{ block.settings.link }}">Learn More</a>
+    </div>
+  </div>
+  
+  <!-- Include your CSS file -->
+  {{ 'scrolling-card.css' | asset_url | stylesheet_tag }}
+  <!-- Include your JavaScript file -->
+  <script src="{{ 'scrolling-card.js' | asset_url }}" defer></script>
+  
+  {% schema %}
+  {
+    "type": "theme_extension",
+    "name": "Scrolling Cards",
+    "settings": [
+      {
+        "id": "scroll_speed",
+        "type": "range",
+        "label": "Scroll Speed (seconds)",
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "default": 30,
+        "unit": "s"
+      },
+      {
+        "id": "cards",
+        "type": "array",
+        "label": "Cards",
+        "limit": 10,
+        "default": [
+          {
+            "type": "object",
+            "settings": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Title"
+              },
+              {
+                "id": "image",
+                "type": "image_picker",
+                "label": "Image"
+              },
+              {
+                "id": "text",
+                "type": "text",
+                "label": "Text"
+              },
+              {
+                "id": "rating",
+                "type": "text",
+                "label": "Rating"
+              },
+              {
+                "id": "description",
+                "type": "text",
+                "label": "Description"
+              },
+              {
+                "id": "add_to_cart_link",
+                "type": "url",
+                "label": "Add to Cart Link"
+              },
+              {
+                "id": "shop_now_link",
+                "type": "url",
+                "label": "Shop Now Link"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
+  {% endschema %}
+  

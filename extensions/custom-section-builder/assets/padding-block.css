@@ -1,0 +1,10 @@
+.adedayo-appname-padding-block {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .adedayo-appname-padding-block__content {
+    margin: 0 auto;
+    max-width: 1200px; /* Adjust the max-width as per your design needs */
+  }
+  

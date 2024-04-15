@@ -1,0 +1,317 @@
+{% schema %}
+{
+"name": "Scrolling Collection",
+"target": "section",
+"settings": [
+{
+"type": "collection",
+"id": "featured_collection",
+"label": "Select Featured Collection"
+},
+{
+"type": "header",
+"content": "Section Appearance"
+},
+{
+"type": "color",
+"id": "background_color",
+"label": "Background Color",
+"default": "#fefbd7"
+},
+{
+"type": "font_picker",
+"id": "text_font",
+"label": "Font",
+"default": "helvetica_n4"
+},
+{
+"type": "select",
+"id": "text_font_weight",
+"label": "Font Weight",
+"options": [
+{
+"value": "normal",
+"label": "Normal"
+},
+{
+"value": "bold",
+"label": "Bold"
+}
+],
+"default": "normal"
+},
+{
+"type": "select",
+"id": "text_font_style",
+"label": "Font Style",
+"options": [
+{
+"value": "normal",
+"label": "Normal"
+},
+{
+"value": "italic",
+"label": "Italic"
+}
+],
+"default": "normal"
+},
+{
+"type": "header",
+"content": "Subtitle Settings"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "Subtitle",
+"default": "Featured Collection"
+},
+{
+"type": "color",
+"id": "subtitle_background_color",
+"label": "Background Color",
+"default": "#005ea2"
+},
+{
+"type": "color",
+"id": "subtitle_text_color",
+"label": "Text Color",
+"default": "#ffffff"
+},
+{
+"type": "header",
+"content": "Main Title Settings"
+},
+{
+"type": "text",
+"id": "main_title",
+"label": "Title",
+"default": "Discover Our Collection"
+},
+{
+"type": "color",
+"id": "title_text_color",
+"label": "Text Color",
+"default": "#121212"
+},
+{
+"type": "select",
+"id": "title_size",
+"label": "Font Size",
+"options": [
+{
+"value": "28px",
+"label": "Small"
+},
+{
+"value": "36px",
+"label": "Medium"
+},
+{
+"value": "44px",
+"label": "Large"
+}
+],
+"default": "36px"
+},
+{
+"type": "select",
+"id": "main_title_weight",
+"label": "Font Weight",
+"options": [
+{
+"value": "normal",
+"label": "Normal"
+},
+{
+"value": "bold",
+"label": "Bold"
+}
+],
+"default": "normal"
+},
+{
+"type": "select",
+"id": "main_title_style",
+"label": "Font Style",
+"options": [
+{
+"value": "normal",
+"label": "Normal"
+},
+{
+"value": "italic",
+"label": "Italic"
+}
+],
+"default": "normal"
+},
+{
+"type": "header",
+"content": "Button Settings"
+},
+{
+"type": "text",
+"id": "button_text",
+"label": "Text",
+"default": "Shop Collection"
+},
+{
+"type": "url",
+"id": "button_link",
+"label": "Link",
+"default": "/collections/all"
+},
+{
+"type": "color",
+"id": "button_color",
+"label": "Background Color",
+"default": "#000000"
+},
+{
+"type": "color",
+"id": "button_text_color",
+"label": "Text Color",
+"default": "#ffffff"
+},
+{
+"type": "header",
+"content": "Card Settings"
+},
+{
+"type": "color",
+"id": "card_title_background_color",
+"label": "Title Background Color",
+"default": "#f7f7f7"
+},
+{
+"type": "color",
+"id": "card_title_text_color",
+"label": "Title Text Color",
+"default": "#333333"
+},
+{
+"type": "range",
+"id": "card_spacing",
+"label": "Card Spacing",
+"min": 0,
+"max": 50,
+"step": 1,
+"unit": "px",
+"default": 10
+},
+{
+"type": "range",
+"id": "column_spacing_desktop",
+"label": "Column Spacing (Desktop)",
+"min": 5,
+"max": 40,
+"step": 1,
+"unit": "px",
+"default": 20
+},
+{
+"type": "range",
+"id": "row_spacing_mobile",
+"label": "Row Spacing (Mobile)",
+"min": 0,
+"max": 20,
+"step": 1,
+"unit": "px",
+"default": 0
+
+},
+{
+"type": "range",
+"id": "scroll_speed",
+"label": "Scroll Speed",
+"min": 1,
+"max": 10,
+"step": 1,
+"default": 2,
+"info": "Adjust the scroll speed from 1 (slow) to 10 (fast)."
+},
+{
+"type": "checkbox",
+"id": "enable_card_border",
+"label": "Enable Card Border",
+"default": false
+},
+{
+"type": "color",
+"id": "card_border_color",
+"label": "Border Color",
+"default": "#F5F5F5"
+}
+]
+}
+{% endschema %}
+
+{{ 'scrolling-collection.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'scrolling-collection.js' | asset_url }}" defer></script> <div class="adedayo-scrolling-collection-grid" data-scroll-speed="{{ block.settings.scroll_speed | default: 10 }}" style=" {% if block.settings.layout_style == 'boxed' %} max-width: 1200px; {% endif %} background-color: {{ block.settings.background_color }}; font-family: {{ block.settings.text_font.family }}, sans-serif; font-weight: {{ block.settings.text_font_weight }}; font-style: {{ block.settings.text_font_style }}; "> <div class="adedayo-scrolling-collection-grid-text"> <a href="#featured-collection" class="adedayo-scrolling-collection-subtitle-btn" style=" background-color: {{ block.settings.subtitle_background_color }}; color: {{ block.settings.subtitle_text_color }}; "> {{ block.settings.subtitle }} </a> <h2 class="adedayo-scrolling-collection-main-title" style=" color: {{ block.settings.title_text_color }}; font-size: {{ block.settings.title_size }}; font-weight: {{ block.settings.main_title_weight }}; font-style: {{ block.settings.main_title_style }}; "> {{ block.settings.main_title }} </h2> <a href="{{ block.settings.button_link }}" class="adedayo-scrolling-collection-shop-now-btn adedayo-scrolling-collection-desktop-shop-now-btn" style=" background-color: {{ block.settings.button_color }}; color: {{ block.settings.button_text_color }}; "> {{ block.settings.button_text }} </a> </div> {% if block.settings.featured_collection == blank %} <p>Please select a collection in the section settings.</p> {% else %} <!-- Desktop Collection Grid Products --> <div class="adedayo-scrolling-collection-grid-products-desktop" style=" gap: {{ block.settings.column_spacing_desktop }}px; "> {% assign collection = collections[block.settings.featured_collection] %} {% if collection != empty %} {% assign total_products = collection.products.size %} {% assign half_products = total_products | divided_by: 2 %} <div class="adedayo-scrolling-collection-grid-products-column"> {% for product in collection.products limit: half_products %} <a href="{{ product.url }}" class="adedayo-scrolling-collection-product-card-link"> <div class="adedayo-scrolling-collection-product-card" style=" margin-bottom: {{ block.settings.card_spacing }}px; {% if block.settings.enable_card_border %} border: 1px solid {{ block.settings.card_border_color }}; {% endif %} "> <div class="adedayo-scrolling-collection-product-image-container"> <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="adedayo-scrolling-collection-product-image" width="200" height="200"> </div> <div class="adedayo-scrolling-collection-product-title" style=" background-color: {{ block.settings.card_title_background_color }}; color: {{ block.settings.card_title_text_color }}; "> {{ product.title }} </div> </div> </a> {% endfor %} </div> <div class="adedayo-scrolling-collection-grid-products-column"> {% for product in collection.products offset: half_products %} <a href="{{ product.url }}" class="adedayo-scrolling-collection-product-card-link"> <div class="adedayo-scrolling-collection-product-card" style=" margin-bottom: {{ block.settings.card_spacing }}px; {% if block.settings.enable_card_border %} border: 1px solid {{ block.settings.card_border_color }}; {% endif %} "> <div class="adedayo-scrolling-collection-product-image-container"> <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="adedayo-scrolling-collection-product-image" width="200" height="200"> </div> <div class="adedayo-scrolling-collection-product-title" style=" background-color: {{ block.settings.card_title_background_color }}; color: {{ block.settings.card_title_text_color }}; "> {{ product.title }} </div> </div> </a> {% endfor %} </div> {% else %} <p>No products found in the selected collection.</p> {% endif %} </div> <!-- End Desktop Collection Grid Products -->
+<!-- Mobile Collection Grid Products -->
+<div class="adedayo-scrolling-collection-grid-products-mobile">
+    {% assign collection = collections[block.settings.featured_collection] %}
+    {% if collection != empty %}
+        <div class="adedayo-scrolling-collection-grid-products-row" style="
+            margin-bottom: {{ block.settings.row_spacing_mobile }}px;
+        ">
+            {% for product in collection.products limit: half_products %}
+                <a href="{{ product.url }}" class="adedayo-scrolling-collection-product-card-link">
+                    <div class="adedayo-scrolling-collection-product-card" style="
+                        margin-right: {{ block.settings.card_spacing }}px;
+                        {% if block.settings.enable_card_border %}
+                            border: 1px solid {{ block.settings.card_border_color }};
+                        {% endif %}
+                    ">
+                        <div class="adedayo-scrolling-collection-product-image-container">
+                            <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="adedayo-scrolling-collection-product-image" width="200" height="200">
+                        </div>
+                        <div class="adedayo-scrolling-collection-product-title" style="
+                            background-color: {{ block.settings.card_title_background_color }};
+                            color: {{ block.settings.card_title_text_color }};
+                        ">
+                            {{ product.title }}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="adedayo-scrolling-collection-grid-products-row">
+            {% for product in collection.products offset: half_products %}
+                <a href="{{ product.url }}" class="adedayo-scrolling-collection-product-card-link">
+                    <div class="adedayo-scrolling-collection-product-card" style="
+                        margin-right: {{ block.settings.card_spacing }}px;
+                        {% if block.settings.enable_card_border %}
+                            border: 1px solid {{ block.settings.card_border_color }};
+                        {% endif %}
+                    ">
+                        <div class="adedayo-scrolling-collection-product-image-container">
+                            <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="adedayo-scrolling-collection-product-image" width="200" height="200">
+                        </div>
+                        <div class="adedayo-scrolling-collection-product-title" style="
+                            background-color: {{ block.settings.card_title_background_color }};
+                            color: {{ block.settings.card_title_text_color }};
+                        ">
+                            {{ product.title }}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No products found in the selected collection.</p>
+    {% endif %}
+</div>
+<!-- End Mobile Collection Grid Products -->
+{% endif %}
+
+<a href="{{ block.settings.button_link }}" class="adedayo-scrolling-collection-shop-now-btn adedayo-scrolling-collection-mobile-shop-now-btn" style="
+background-color: {{ block.settings.button_color }};
+color: {{ block.settings.button_text_color }};
+">
+{{ block.settings.button_text }}
+</a>
+
+</div>

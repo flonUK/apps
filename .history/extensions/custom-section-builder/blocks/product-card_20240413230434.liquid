@@ -1,0 +1,59 @@
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+<div class="product-card">
+  {% for product in settings.products %}
+    <div class="product-container">
+      <div class="product-visuals">
+        {% for variant in product.selected_or_first_available_variant.featured_image %}
+          <div class="product-visual">
+            {% if variant.featured_image != blank %}
+              <img src="{{ variant.featured_image | img_url: '300x' }}" alt="{{ variant.title }}">
+            {% else %}
+              {{ 'product-image-placeholder' | placeholder_svg_tag }}
+            {% endif %}
+            <div class="product-title">{{ variant.title }}</div>
+            <div class="product-price">{{ variant.price | money }}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="variant-options">
+        {% if settings.show_color_option %}
+          <div class="color-options">
+            {% for option in product.options_with_values[0].values %}
+              <div class="color-option" style="background-color: {{ option | handle }};">{{ option }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if settings.show_category_option %}
+          <div class="category-option">
+            <label for="category-select-{{ product.id }}">Category:</label>
+            <select id="category-select-{{ product.id }}">
+              {% for collection in collections %}
+                <option value="{{ collection.handle }}">{{ collection.title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+
+        {% if settings.show_metafields %}
+          <div class="metafield-options">
+            {% for metafield in product.metafields.global %}
+              <div class="metafield-option">
+                <label for="metafield-{{ product.id }}-{{ metafield.key }}">{{ metafield.key }}:</label>
+                <input type="text" id="metafield-{{ product.id }}-{{ metafield.key }}" value="{{ metafield.value }}">
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+
+
+<script src="{{ 'product-card.js' | asset_url }}" defer></script>
+

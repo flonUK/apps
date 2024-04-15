@@ -1,0 +1,122 @@
+{% schema %}
+{
+  "name": "Countdown Banner",
+  "class": "countdown-banner",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "radio",
+      "id": "background_type",
+      "label": "Background Type",
+      "options": [
+        {"value": "color", "label": "Color"},
+        {"value": "image", "label": "Image"}
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "banner_height",
+      "label": "Banner Height",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Limited Time Offer"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Get your orders before the countdown ends!</p>"
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "label": "Countdown Date (YYYY-MM-DD)",
+      "default": "2030-12-31"
+    },
+    {
+      "type": "header",
+      "content": "Countdown & Text Styling"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content Alignment",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "expired_text",
+      "label": "Expired Text",
+      "default": "EXPIRED"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_pill_style",
+      "label": "Use Pill Style Button",
+      "default": false
+    }
+  ]
+}
+{% endschema %}
+
+

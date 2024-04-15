@@ -1,0 +1,137 @@
+/* General Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Ensures variables are defined globally if they're not set dynamically */
+  :root {
+    --background-color: #000; /* Default black background */
+    --text-color: #fff; /* High contrast text color */
+    --button-color: #ffffff; /* Example button color for visibility */
+    --button-text-color: #000; /* Button text color */
+    --gap: 20px; /* Default gap */
+    --button-padding: 10px; /* Default button padding */
+    --button-border-radius: 5px; /* Default button border-radius */
+  }
+  
+  .dynamic-duo-card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 aspect ratio */
+  }
+  
+  .dynamic-duo-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Custom Full Width Adjustments */
+  .custom-full-width {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Styles for the custom app blocks container */
+  .dynamic-duo-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Layout Styles for Full Width and Boxed */
+  .dynamic-duo-cards.fullwidth .dynamic-duo-card,
+  .dynamic-duo-cards.boxed .dynamic-duo-card {
+    flex: 1 0 calc(50% - var(--gap));
+    margin-right: var(--gap);
+  }
+  
+  .dynamic-duo-cards.boxed .dynamic-duo-card:last-child {
+    margin-right: 0;
+  }
+  
+  @media (min-width: 769px) {
+    .dynamic-duo-cards.boxed {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+    }
+  }
+  
+  /* Mobile-specific Styles */
+  @media (max-width: 768px) {
+    .dynamic-duo-cards,
+    .dynamic-duo-cards.boxed,
+    .dynamic-duo-cards.fullwidth {
+      flex-direction: column;
+    }
+  
+    .dynamic-duo-cards .dynamic-duo-card,
+    .dynamic-duo-cards.boxed .dynamic-duo-card,
+    .dynamic-duo-cards.fullwidth .dynamic-duo-card {
+      flex: 0 0 100%;
+    }
+  }
+  
+  /* Block and Background Styles */
+  .dynamic-duo-card {
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+  
+  /* Vertical Alignment for Content */
+  .dynamic-duo-card-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    top: var(--content-vertical-alignment);
+  }
+  
+  /* Heading and Button Styles */
+  h1, h2, h3, h4, h5 {
+    color: var(--text-color);
+  }
+  
+  .dynamic-duo-card-button {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    padding: var(--button-padding) 36px;
+    border-radius: var(--button-border-radius);
+    margin: 0.5em;
+    display: inline-block;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-transform: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dynamic-duo-card-content.align-left {
+    left: 0;
+    transform: translateX(0%);
+  }
+  
+  .dynamic-duo-card-content.align-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .dynamic-duo-card-content.align-right {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  
+  .dynamic-duo-card-content {
+    text-align: var(--content-alignment);
+  }
+
+  

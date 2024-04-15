@@ -1,0 +1,144 @@
+
+
+
+
+{{ 'scrolling-collection.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scrolling-collection.js' | asset_url }}" defer></script>
+
+<div class="collection-grid" data-scroll-speed="{{ block.settings.scroll_speed | default: 10 }}" style="
+    {% if block.settings.layout_style == 'boxed' %}
+        max-width: 1200px;
+    {% endif %}
+    background-color: {{ block.settings.background_color }};
+    font-family: {{ block.settings.text_font.family }}, sans-serif;
+    font-weight: {{ block.settings.text_font_weight }};
+    font-style: {{ block.settings.text_font_style }};
+">
+    <div class="collection-grid-text">
+        <a href="#featured-collection" class="subtitle-btn" style="
+            background-color: {{ block.settings.subtitle_background_color }};
+            color: {{ block.settings.subtitle_text_color }};
+        ">
+            {{ block.settings.subtitle }}
+        </a>
+        <h2 class="main-title" style="
+            color: {{ block.settings.title_text_color }};
+            font-size: {{ block.settings.title_size }};
+            font-weight: {{ block.settings.main_title_weight }};
+            font-style: {{ block.settings.main_title_style }};
+        ">
+            {{ block.settings.main_title }}
+        </h2>
+        <a href="{{ block.settings.button_link }}" class="shop-now-btn desktop-shop-now-btn" style="
+            background-color: {{ block.settings.button_color }};
+            color: {{ block.settings.button_text_color }};
+        ">
+            {{ block.settings.button_text }}
+        </a>
+    </div>
+
+    {% if block.settings.featured_collection == blank %}
+        <p>Please select a collection in the section settings.</p>
+    {% else %}
+        <!-- Desktop Collection Grid Products -->
+        <div class="collection-grid-products-desktop" style="
+            gap: {{ block.settings.column_spacing_desktop }}px;
+        ">
+            {% assign collection = collections[block.settings.featured_collection] %}
+            {% if collection != empty %}
+                {% for i in (1..3) %}
+                    <div class="collection-grid-products-column">
+                        {% for product in collection.products %}
+                            {% assign column_index = forloop.index | modulo: 3 %}
+                            {% if column_index == i %}
+                                <a href="{{ product.url }}" class="product-card-link">
+                                    <div class="product-card" style="
+                                        margin-bottom: {{ block.settings.card_spacing }}px;
+                                        {% if block.settings.enable_card_border %}
+                                            border: 1px solid {{ block.settings.card_border_color }};
+                                        {% endif %}
+                                    ">
+                                        <div class="product-image-container">
+                                            <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="product-image" width="200" height="200">
+                                        </div>
+                                        <div class="product-title" style="
+                                            background-color: {{ block.settings.card_title_background_color }};
+                                            color: {{ block.settings.card_title_text_color }};
+                                        ">
+                                            {{ product.title }}
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No products found in the selected collection.</p>
+            {% endif %}
+        </div>
+        <!-- End Desktop Collection Grid Products -->
+
+        <!-- Mobile Collection Grid Products -->
+        <div class="collection-grid-products-mobile">
+            {% assign collection = collections[block.settings.featured_collection] %}
+            {% if collection != empty %}
+                <div class="collection-grid-products-row" style="
+                    margin-bottom: {{ block.settings.row_spacing_mobile }}px;
+                ">
+                    {% for product in collection.products limit:10 %}
+                        <a href="{{ product.url }}" class="product-card-link">
+                            <div class="product-card" style="
+                                margin-right: {{ block.settings.card_spacing }}px;
+                                {% if block.settings.enable_card_border %}
+                                    border: 1px solid {{ block.settings.card_border_color }};
+                                {% endif %}
+                            ">
+                                <div class="product-image-container">
+                                    <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="product-image" width="200" height="200">
+                                </div>
+                                <div class="product-title" style="
+                                    background-color: {{ block.settings.card_title_background_color }};
+                                    color: {{ block.settings.card_title_text_color }};
+                                ">
+                                    {{ product.title }}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="collection-grid-products-row">
+                    {% for product in collection.products offset:10 limit:10 %}
+                        <a href="{{ product.url }}" class="product-card-link">
+                            <div class="product-card" style="
+                                margin-right: {{ block.settings.card_spacing }}px;
+                                {% if block.settings.enable_card_border %}
+                                    border: 1px solid {{ block.settings.card_border_color }};
+                                {% endif %}
+                            ">
+                                <div class="product-image-container">
+                                    <img src="{{ product.featured_image | image_url: width: 200, height: 200 }}" alt="{{ product.title | escape }}" class="product-image" width="200" height="200">
+                                </div>
+                                <div class="product-title" style="
+                                    background-color: {{ block.settings.card_title_background_color }};
+                                    color: {{ block.settings.card_title_text_color }};">
+                                    {{ product.title }}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No products found in the selected collection.</p>
+            {% endif %}
+        </div>
+        <!-- End Mobile Collection Grid Products -->
+    {% endif %}
+
+    <a href="{{ block.settings.button_link }}" class="shop-now-btn mobile-shop-now-btn" style="
+        background-color: {{ block.settings.button_color }};
+        color: {{ block.settings.button_text_color }};
+    ">
+        {{ block.settings.button_text }}
+    </a>
+</div>

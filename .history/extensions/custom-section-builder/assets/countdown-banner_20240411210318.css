@@ -1,0 +1,76 @@
+/* Main banner styling */
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Ensure full width coverage */
+  height: 80vh; /* Default height, adjustable via settings */
+}
+
+/* Content container within the banner */
+.adedayo-countdown-banner__content {
+  text-align: inherit; /* Inherits alignment from the specific settings */
+  width: 100%; /* Full width of the banner */
+  max-width: 1200px; /* Maximum content width */
+  margin: auto; /* Centering content horizontally */
+}
+
+/* Headline styles */
+.adedayo-countdown-banner__headline {
+  color: inherit; /* Inherits color from inline styles */
+  font-size: inherit; /* Inherits font size from inline styles */
+  margin: 0.5em 0; /* Spacing above and below the headline */
+}
+
+/* Description styles */
+.adedayo-countdown-banner__description {
+  color: inherit; /* Inherits color from inline styles */
+  font-size: 16px; /* Default size for description text */
+  margin-bottom: 20px; /* Space below description */
+}
+
+/* Countdown timer styles */
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: inherit; /* Aligns horizontally according to the parent's text alignment */
+  align-items: center; /* Vertically centers the countdown text */
+  font-size: inherit; /* Inherits font size from inline styles */
+  color: inherit; /* Inherits color from inline styles */
+  margin-bottom: 20px; /* Space below the countdown */
+}
+
+/* Styles for the countdown items */
+.adedayo-countdown-banner__timer-item {
+  padding: 0 10px; /* Padding around the numbers */
+}
+
+/* Separator styles */
+.adedayo-countdown-banner__timer-separator {
+  margin: 0 5px; /* Space around the separator colon */
+}
+
+/* Button styles */
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit; /* Inherits color from inline styles */
+  background-color: inherit; /* Inherits background color from inline styles */
+  border-radius: 0; /* Default square style, can be overridden */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover states */
+}
+
+/* Pill style button */
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px; /* Rounded borders for pill style */
+}
+
+/* Hover effect for button */
+.adedayo-countdown-banner__link:hover {
+  background-color: #ccc; /* Light grey background on hover */
+  color: #333; /* Darker text on hover */
+}

@@ -1,0 +1,70 @@
+<div class="card-container">
+    {% for i in (1..10) %}
+      {% assign image_key = 'image_' | append: i %}
+      {% assign title_key = 'title_' | append: i %}
+      {% assign rating_key = 'rating_' | append: i %}
+      {% assign description_key = 'description_' | append: i %}
+      {% assign link_key = 'link_' | append: i %}
+  
+      <div class="product-card" id="product-card-{{ i }}">
+        {% if block.settings[image_key] %}
+          <img class="product-image" src="{{ block.settings[image_key] | img_url: '300x300' }}" alt="{{ block.settings[title_key] | escape }}">
+        {% endif %}
+        <div class="card-info">
+          <h3 class="product-title">{{ block.settings[title_key] }}</h3>
+          <div class="product-rating">{{ block.settings[rating_key] }}</div>
+          <p class="product-description">{{ block.settings[description_key] }}</p>
+          <a class="product-link" href="{{ block.settings[link_key] }}">Learn More</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="{{ 'product-card.css' | asset_url }}">
+  
+  <!-- Link to your JavaScript file -->
+  <script src="{{ 'product-card.js' | asset_url }}" defer></script>
+  
+  {% schema %}
+  {
+    "name": "Product Cards",
+    "target":"section",
+    "max_blocks": 10,
+    "blocks": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Card Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Card Title",
+        "default": "Product Name"
+      },
+      {
+        "type": "text",
+        "id": "rating",
+        "label": "Card Rating",
+        "default": "★★★★★"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Card Description",
+        "default": "Description"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Card Link"
+      }
+    ],
+    "presets": [{
+      "name": "Product Card",
+      "category": "Custom"
+    }]
+  }
+  {% endschema %}
+  

@@ -1,0 +1,49 @@
+/* Updated CSS for the scrolling bar container */
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden; /* Hides the overflow to maintain a clean scroll */
+  white-space: nowrap; /* Keeps the inline or inline-block elements in a single line */
+  display: flex;
+  align-items: center; /* Vertically centers the inline or inline-block elements */
+  background-color: var(--adedayo-scrolling-bg-color); /* Uses CSS variable for background color */
+  height: var(--adedayo-scrolling-height); /* Uses CSS variable for the height of the bar */
+}
+
+/* Updated CSS for the scrolling content with the animation */
+.adedayo-scrolling-bar-content {
+  display: inline-block; /* Changed to inline-block for better control */
+  animation: adedayo-scrolling-bar-scroll var(--adedayo-scrolling-speed) linear infinite; /* Continuous scroll animation */
+  padding: 1.6rem 0; /* Top and bottom padding */
+  font-weight: var(--adedayo-scrolling-font-weight); /* CSS variable for font weight */
+  font-size: var(--adedayo-scrolling-font-size); /* CSS variable for font size */
+  font-family: var(--adedayo-scrolling-font-family); /* CSS variable for font family */
+  color: var(--adedayo-scrolling-text-color); /* CSS variable for text color */
+}
+
+/* Styling for the links inside the scrolling content */
+.adedayo-scrolling-bar-content a {
+  color: inherit; /* Inherits the color from the parent */
+  text-decoration: none; /* No underline for the links */
+}
+
+/* Styling for text and images within the scrolling content */
+.adedayo-scrolling-bar-content span,
+.adedayo-scrolling-bar-content img {
+  margin-right: 10px; /* Right margin for spacing */
+  vertical-align: middle; /* Aligns items on the same baseline */
+}
+
+/* Hover state for the scrolling content to pause the animation */
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused; /* Pauses the animation on hover */
+}
+
+/* Keyframes for the scrolling animation from right to left */
+@keyframes adedayo-scrolling-bar-scroll {
+  0% {
+    transform: translateX(0); /* Starting position */
+  }
+  100% {
+    transform: translateX(-100%); /* Moves the content left to its own width */
+  }
+}

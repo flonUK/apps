@@ -1,0 +1,38 @@
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Or use {{ block.settings.banner_height }}vh as per your settings */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.adedayo-countdown-banner__headline,
+.adedayo-countdown-banner__description,
+.adedayo-countdown-banner__timer,
+.adedayo-countdown-banner__link {
+  width: 100%;
+  margin: 0.5em 0; /* Provides equal spacing above and below the elements */
+}
+
+.adedayo-countdown-banner__timer {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Example font */
+  letter-spacing: -0.05em; /* Adjust letter spacing as needed */
+  margin: 20px 0; /* Space around the timer */
+}
+
+/* Additional styles to structure the timer digits */
+.adedayo-countdown-banner__timer span {
+  font-weight: bold;
+  padding: 0 0.2em; /* Adjust as necessary */
+}

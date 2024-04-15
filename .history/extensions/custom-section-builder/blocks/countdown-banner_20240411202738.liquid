@@ -1,0 +1,28 @@
+
+
+
+
+
+{% assign background_style = '' %}
+{% if block.settings.background_type == 'image' and block.settings.background_image != blank %}
+  {% assign image_url = block.settings.background_image | image_url: width: 2000 %}
+  {% assign background_style = 'background-image: url(' | append: image_url | append: '); background-size: cover; background-position: center;' %}
+{% else %}
+  {% assign background_style = 'background-color: ' | append: block.settings.background_color | append: ';' %}
+{% endif %}
+
+<div class="adedayo-countdown-banner" style="{{ background_style }} color: {{ block.settings.text_color }}; height: {{ block.settings.banner_height }}vh;">
+  <div class="adedayo-countdown-banner__content" style="text-align: {{ block.settings.content_alignment }};">
+    <h2 class="adedayo-countdown-banner__headline">{{ block.settings.headline }}</h2>
+    <div class="adedayo-countdown-banner__description">{{ block.settings.description | richtext }}</div>
+    <div class="adedayo-countdown-banner__timer" data-countdown-date="{{ block.settings.countdown_date }}" data-expired-text="{{ block.settings.expired_text }}"></div>
+    {% if block.settings.button_text != blank %}
+      <a href="{{ block.settings.link }}" class="adedayo-countdown-banner__link{% if block.settings.button_pill_style %} adedayo-countdown-banner__link--pill{% endif %}" style="color: {{ block.settings.button_text_color }}; background-color: {{ block.settings.button_background_color }};">
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{{ 'countdown-banner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'countdown-banner.js' | asset_url }}" defer></script>

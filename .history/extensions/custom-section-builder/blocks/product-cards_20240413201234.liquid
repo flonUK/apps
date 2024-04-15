@@ -1,0 +1,23 @@
+{{ 'product-cards.css' | asset_url | stylesheet_tag }}
+<div class="adedayo-product-cards">
+  {% for block in section.blocks %}
+    <div class="adedayo-product-card" data-product-id="{{ forloop.index }}">
+      <div class="adedayo-product-card__background" style="background-color: {{ block.settings.background_color }};">
+        <div class="adedayo-product-card__image-container">
+          {% if block.settings.product != blank %}
+            {% assign product = block.settings.product %}
+            {% for image in product.images limit: 5 %}
+              <img class="adedayo-product-card__image" src="{{ image | image_url: '800x' }}" alt="{{ image.alt | escape }}">
+            {% endfor %}
+          {% else %}
+            {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'adedayo-product-card__placeholder' }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="adedayo-product-card__info">
+        <h3 class="adedayo-product-card__title">{{ product.title | default: 'Product ' | append: forloop.index }}</h3>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<script src="{{ 'product-cards.js' | asset_url }}" defer></script>

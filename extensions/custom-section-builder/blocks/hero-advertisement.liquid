@@ -1,0 +1,136 @@
+{% schema %}
+{
+  "name": "Hero Advertisement",
+  "class": "hero-advertisement",
+  "target": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_advertisement_background_image",
+      "label": "Background Image",
+      "info": "Use a wide image that is at least 1792px by 1024px."
+    },
+    {
+      "type": "range",
+      "id": "hero_advertisement_section_height",
+      "label": "Section Height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "hero_advertisement_heading",
+      "label": "Heading Text",
+      "default": "NEW"
+    },
+    {
+      "type": "font_picker",
+      "id": "hero_advertisement_heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_heading_color",
+      "label": "Heading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "hero_advertisement_heading_font_size",
+      "label": "Heading Font Size",
+      "min": 12,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "text",
+      "id": "hero_advertisement_subheading",
+      "label": "Subheading Text",
+      "default": "Women's Summer Collection"
+    },
+    {
+      "type": "font_picker",
+      "id": "hero_advertisement_subheading_font",
+      "label": "Subheading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "hero_advertisement_subheading_font_size",
+      "label": "Subheading Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_subheading_color",
+      "label": "Subheading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "url",
+      "id": "hero_advertisement_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_advertisement_button_text",
+      "label": "Button Text",
+      "default": "Shop"
+    },
+    {
+      "type": "checkbox",
+      "id": "hero_advertisement_use_custom_button_text_color",
+      "label": "Use Custom Button Text Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_button_text_color",
+      "label": "Button Text Color",
+      "default": "#DD1D1D"
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_button_border_color",
+      "label": "Button Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hero_advertisement_button_hover_bg_color",
+      "label": "Button Hover Background Color",
+      "default": "#DD1D1D"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="adedayo-hero-advertisement-section" style="background-image: url('{{ block.settings.hero_advertisement_background_image | image_url: width: 1792, height: 1024 }}'); height: {{ block.settings.hero_advertisement_section_height }}vh;">
+  <div class="adedayo-hero-advertisement-content">
+    <div class="adedayo-text-wrapper">
+      <h2 class="adedayo-hero-advertisement-heading" style="color: {{ block.settings.hero_advertisement_heading_color }}; font-family: {{ block.settings.hero_advertisement_heading_font.family }}, sans-serif; font-size: {{ block.settings.hero_advertisement_heading_font_size }}px;">{{ block.settings.hero_advertisement_heading }}</h2>
+      <h1 class="adedayo-hero-advertisement-subheading" style="color: {{ block.settings.hero_advertisement_subheading_color }}; font-size: {{ block.settings.hero_advertisement_subheading_font_size }}px; font-family: {{ block.settings.hero_advertisement_subheading_font.family }}, sans-serif;">{{ block.settings.hero_advertisement_subheading }}</h1>
+    </div>
+    <a href="{{ block.settings.hero_advertisement_button_link }}" class="adedayo-hero-advertisement-shop-button" style="{% if block.settings.hero_advertisement_use_custom_button_text_color %}color: {{ block.settings.hero_advertisement_button_text_color }};{% endif %} border-color: {{ block.settings.hero_advertisement_button_border_color }}; --button-hover-text-color: {{ block.settings.hero_advertisement_button_hover_text_color }}; --button-hover-bg-color: {{ block.settings.hero_advertisement_button_hover_bg_color }};"> {{ block.settings.hero_advertisement_button_text }} </a>
+  </div>
+</div>
+
+{{ 'hero-advertisement.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'hero-advertisement.js' | asset_url }}" defer></script>

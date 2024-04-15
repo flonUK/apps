@@ -1,0 +1,46 @@
+/* Updated CSS for the scrolling bar container */
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--adedayo-scrolling-bg-color);
+  height: var(--adedayo-scrolling-height);
+}
+
+/* Updated CSS for the scrolling content with corrected animation */
+.adedayo-scrolling-bar-content {
+  display: inline-block; /* Changed to inline-block for proper animation */
+  animation: adedayo-scrolling-bar-scroll var(--adedayo-scrolling-speed) linear infinite;
+  padding: 1.6rem 0;
+  font-weight: var(--adedayo-scrolling-font-weight);
+  font-size: var(--adedayo-scrolling-font-size);
+  font-family: var(--adedayo-scrolling-font-family);
+  color: var(--adedayo-scrolling-text-color);
+  letter-spacing: 0.1em;
+}
+
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused;
+}
+
+.adedayo-scrolling-bar-content a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.adedayo-scrolling-bar-content span, .adedayo-scrolling-bar-content img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Ensure this keyframes animation moves the content fully across */
+@keyframes adedayo-scrolling-bar-scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

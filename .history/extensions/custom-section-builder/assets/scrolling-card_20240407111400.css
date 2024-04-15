@@ -1,0 +1,47 @@
+.scrolling-cards-container {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .scrolling-cards {
+    display: flex;
+    animation: scroll-left linear infinite;
+  }
+  
+  .scrolling-card {
+    width: 250px; /* Adjust the width as necessary */
+    margin-right: 20px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .card-title,
+  .card-text,
+  .card-rating,
+  .card-description,
+  .card-button {
+    margin: 10px 0;
+  }
+  
+  .card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #333; /* Change as needed */
+    margin-right: 5px;
+  }
+  
+  .add-to-cart {
+    background-color: #f00; /* Change as needed */
+  }
+  
+  .shop-now {
+    background-color: #00f; /* Change as needed */
+  }
+  
+  @keyframes scroll-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  

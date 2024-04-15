@@ -1,0 +1,248 @@
+:root {
+    --background-color: #fefbd7;
+    --subtitle-background-color: #005ea2;
+    --subtitle-text-color: #ffffff;
+    --title-text-color: #121212;
+    --title-size: 36px;
+    --button-color: #000000;
+    --button-text-color: #ffffff;
+    --card-background-color: #ffffff;
+    --card-title-background-color: #f7f7f7;
+    --card-title-text-color: #333333;
+    }
+    
+    body, h1, h2, h3, p, .subtitle-btn, .shop-now-btn, .main-title, .product-title {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-font-family), sans-serif;
+    font-weight: var(--text-font-weight);
+    font-style: var(--text-font-style);
+    }
+    
+    .collection-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    margin: 20px auto;
+    background-color: var(--background-color);
+    overflow: hidden;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    height: 85vh;
+    width: 100vw !important; /* Update this to ensure full width */
+    }
+    
+    .collection-grid-text {
+    text-align: center;
+    padding-bottom: 20px;
+    }
+    
+    .subtitle-btn {
+    background-color: var(--subtitle-background-color);
+    color: var(--subtitle-text-color);
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 12px;
+    }
+    
+    .shop-now-btn {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-radius: 24px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin-top: 20px;
+    }
+    
+    .main-title {
+    font-size: var(--title-size);
+    color: var(--title-text-color);
+    margin: 20px 0;
+    }
+    
+    .product-card {
+    background-color: var(--card-background-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 145px;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 0;
+    }
+    
+    .product-title {
+    text-align: center;
+    background-color: var(--card-title-background-color);
+    color: var(--card-title-text-color);
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .product-image-container {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: transparent;
+    overflow: hidden;
+    }
+    
+    .product-image {
+    box-sizing: border-box;
+    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    }
+    
+    .product-card-link {
+    text-decoration: none;
+    color: inherit;
+    }
+    
+    @media (min-width: 1025px) {
+    .collection-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px; /* Adjust padding if necessary /
+    height: 65vh;
+    width: 100vw !important; / Update or ensure this accommodates full width appropriately */
+    }
+    .collection-grid-text {
+        max-width: 40%;
+        text-align: left;
+        padding: 0;
+    }
+    
+    .collection-grid-products-mobile {
+        display: none;
+    }
+    
+    .collection-grid-products-desktop {
+        display: flex;
+        max-width: 55%;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        height: 200%;
+    }
+    
+    .collection-grid-products-column {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scroll-snap-align: start;
+        height: 100%;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .collection-grid-products-column::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .product-card {
+        flex: none;
+        width: 145px;
+        height: 195px;
+        scroll-snap-align: start;
+    }
+    
+    .product-title {
+        padding: 10px;
+        width: 100%;
+    }
+    
+    .mobile-shop-now-btn {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+.collection-grid {
+flex-direction: row;
+justify-content: space-between;
+padding: 30px; 
+height: 70vh;
+width: 100vw !important; / Update or ensure this accommodates full width appropriately */
+}
+.collection-grid-text {
+    max-width: 40%;
+    text-align: left;
+    padding: 0;
+}
+
+.collection-grid-products-mobile {
+    display: none;
+}
+
+.collection-grid-products-desktop {
+    display: flex;
+    max-width: 55%;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 200%;
+}
+
+.collection-grid-products-column {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scroll-snap-align: start;
+    height: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.collection-grid-products-column::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    flex: none;
+    width: 130px;
+    height: 180px;
+    scroll-snap-align: start;
+}
+
+.product-title {
+    padding: 8px;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.mobile-shop-now-btn {
+    display: none;
+}
+}
+
+@media (max-width: 767px) {
+.collection-grid {
+height: auto;
+width: 100vw !important; /* This is already set to full width, but ensure consistency */
+padding: 20px;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 20px 0;
+}
+

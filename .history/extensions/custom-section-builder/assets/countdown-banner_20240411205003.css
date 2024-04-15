@@ -1,0 +1,39 @@
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Adjustable via settings */
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%;
+  text-align: inherit; /* Ensures alignment is inherited from this container's style attribute */
+}
+
+.adedayo-countdown-banner__headline, 
+.adedayo-countdown-banner__description, 
+.adedayo-countdown-banner__timer {
+  color: inherit; /* Inherits color from content container */
+}
+
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center; /* Ensures horizontal alignment matches text-align setting */
+  width: 100%; /* Ensures it stretches to align properly */
+}
+
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0; /* Default style, overridden if pill style is selected */
+}
+
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px; /* Pill style if selected */
+}

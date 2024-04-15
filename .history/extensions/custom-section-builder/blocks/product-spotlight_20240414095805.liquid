@@ -1,0 +1,83 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight" style="padding: 50px 0;">
+  {% if block.settings.product != blank %}
+    <div class="product-spotlight-card {% unless block.settings.curved_edges %}square-edges{% endunless %}" style="background-color: {{ block.settings.card_bg_color }}; width: {% unless block.settings.curved_edges %}350px{% else %}400px{% endunless %};">
+      <div class="product-spotlight-image-container" style="height: {% unless block.settings.curved_edges %}200px{% else %}400px{% endunless %};">
+        {% for image in block.settings.product.images %}
+          {% assign image_width = 400 %}
+          {% assign image_height = 400 %}
+          {% if not block.settings.curved_edges %}
+            {% assign image_width = 350 %}
+            {% assign image_height = 350 %}
+          {% endif %}
+          <img src="{{ image | image_url: width: image_width, height: image_height }}" alt="{{ block.settings.product.title }}" class="product-spotlight-image {% if forloop.first %}active{% endif %}">
+        {% endfor %}
+      </div>
+      <div class="product-spotlight-info">
+        <div class="product-spotlight-title" style="font-size: {{ block.settings.title_font_size }}px; color: {{ block.settings.title_color }};">{{ block.settings.product.title }}</div>
+        {% if block.settings.show_price %}
+          <div class="product-spotlight-price" style="font-size: {{ block.settings.price_font_size }}px; color: {{ block.settings.price_color }}; margin-top: 5px;">{{ block.settings.product.price | money }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "checkbox",
+      "id": "curved_edges",
+      "label": "Enable Curved Edges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "number",
+      "id": "title_font_size",
+      "label": "Title Font Size",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price Color",
+      "default": "#888888"
+    },
+    {
+      "type": "number",
+      "id": "price_font_size",
+      "label": "Price Font Size",
+      "default": 16
+    }
+  ]
+}
+{% endschema %}

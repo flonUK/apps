@@ -1,0 +1,50 @@
+/* Styles for the scrolling bar container */
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--adedayo-scrolling-bg-color); /* Background color set through CSS custom property */
+  height: var(--adedayo-scrolling-height); /* Height set through CSS custom property */
+}
+
+/* Styles for the scrolling content */
+.adedayo-scrolling-bar-content {
+  display: inline-flex;
+  animation: adedayo-scrolling-bar-scroll linear infinite; /* Continuous scroll animation */
+  padding: 1.6rem 0;
+  font-weight: var(--adedayo-scrolling-font-weight); /* Font weight set through CSS custom property */
+  font-size: var(--adedayo-scrolling-font-size); /* Font size set through CSS custom property */
+  font-family: var(--adedayo-scrolling-font-family); /* Font family set through CSS custom property */
+  color: var(--adedayo-scrolling-text-color); /* Text color set through CSS custom property */
+  letter-spacing: 0.1em; /* Adjusted for visual appeal */
+}
+
+/* Hover effect to pause the animation */
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused;
+}
+
+/* Styling for links within the scrolling content to inherit text color and remove underline */
+.adedayo-scrolling-bar-content a {
+  color: inherit; /* Ensures link color matches the surrounding text */
+  text-decoration: none; /* Removes underline from links */
+}
+
+/* Margins for text spans and images for spacing */
+.adedayo-scrolling-bar-content span,
+.adedayo-scrolling-bar-content img {
+  margin-right: 10px; /* Right margin for spacing */
+  vertical-align: middle; /* Aligns images and text on the same line */
+}
+
+/* Keyframes for the scroll animation */
+@keyframes adedayo-scrolling-bar-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

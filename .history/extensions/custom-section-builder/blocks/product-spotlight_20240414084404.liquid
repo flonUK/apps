@@ -1,0 +1,36 @@
+{{ 'product-spotlight.css' | asset_url | stylesheet_tag }}
+
+<div class="product-spotlight">
+  {% for product in block.settings.selected_products %}
+    {% if product != blank %}
+      <div class="product-spotlight-card" style="background-color: {{ block.settings.card_bg_color }};">
+        <div class="product-spotlight-image-container" data-product-handle="{{ product.handle }}"></div>
+        <div class="product-spotlight-title"></div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script src="{{ 'product-spotlight.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "target": "section",
+  "settings": [
+    {
+      "type": "products",
+      "id": "selected_products",
+      "label": "Select Products",
+      "max": 3,
+      "info": "Select up to 3 products."
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#FFFFFF"
+    }
+  ]
+}
+{% endschema %}

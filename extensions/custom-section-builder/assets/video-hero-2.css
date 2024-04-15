@@ -1,0 +1,195 @@
+/* Base styles for the video section */
+.video-hero-2 {
+    position: relative;
+    overflow: hidden;
+    }
+    
+    .video-container {
+    position: relative;
+    width: 100%;
+    }
+    
+    .video-hero-2 .video-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    }
+    
+    .video-hero-2 .video-hero-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+    
+    /* Styles for the video controls */
+    .video-hero-2 .video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 4;
+    pointer-events: none;
+    }
+    
+    .video-hero-2:hover .video-controls {
+    opacity: 1;
+    pointer-events: auto;
+    }
+    
+    .control-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .play-pause,
+    .mute-toggle,
+    .fullscreen-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    }
+    
+    .play-pause-text {
+    margin-left: 5px;
+    }
+    
+    .play-pause .pause-icon,
+    .play-pause.playing .play-icon {
+    display: none;
+    }
+    
+    .play-pause.playing .pause-icon {
+    display: inline;
+    }
+    
+    .mute-unmute-text {
+    margin-left: 5px;
+    }
+    
+    .mute-toggle .unmute-icon,
+    .mute-toggle.muted .mute-icon {
+    display: none;
+    }
+    
+    .mute-toggle.muted .unmute-icon {
+    display: inline;
+    }
+    
+    .time-info {
+    margin-right: 10px;
+    font-size: 14px;
+    }
+    
+    .progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    margin: 0 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    }
+    
+    .progress-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #FFF;
+    transition: width 0.1s linear;
+    }
+    
+    .play-pause-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 3;
+    }
+    
+    .play-pause-overlay .play-pause-text {
+    color: #FFF;
+    font-size: 24px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+    }
+    
+    .video-hero-2:hover .play-pause-overlay {
+    opacity: 1;
+    }
+    
+    .video-hero-2:hover {
+    cursor: none;
+    }
+    
+    /* Hide mobile video on desktop */
+    @media (min-width: 768px) {
+    .mobile-video {
+    display: none;
+    }
+    }
+    
+    /* Adjusting text and icons for better mobile responsiveness */
+    @media (max-width: 767px) {
+    .video-container {
+    height: 100vh;
+    }
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    .video-controls {
+        bottom: 0;
+    }
+    
+    .control-bar {
+        justify-content: space-between;
+    }
+    
+    .play-icon,
+    .pause-icon,
+    .mute-icon,
+    .unmute-icon,
+    .fullscreen-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .play-pause-text,
+    .mute-unmute-text,
+    .fullscreen-text {
+        display: none;
+    }
+}
+
+/* Ensure icons are only shown on mobile */
+@media (max-width: 767px) {
+.fullscreen-icon {
+display: inline-block;
+}
+}
+
+@media (min-width: 768px) {
+.fullscreen-icon {
+display: none;
+}
+}

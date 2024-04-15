@@ -1,0 +1,59 @@
+/* product-spotlight.css */
+
+.product-spotlight {
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px; /* Adjust padding to show more background color */
+}
+
+.product-spotlight-card {
+  width: 400px; /* Maintain width */
+  padding: 20px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Maintain border-radius */
+  position: relative; /* Add position relative for absolute positioning */
+}
+
+.product-spotlight-image-container {
+  position: relative;
+  margin-bottom: 10px;
+  height: 100px; /* Reduce product image height */
+  overflow: hidden;
+  border-radius: 10px; /* Maintain border-radius */
+}
+
+.product-spotlight-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  object-fit: cover;
+  border-radius: 10px; /* Maintain border-radius */
+}
+
+.product-spotlight-image.active {
+  opacity: 1;
+}
+
+.product-spotlight-info {
+  display: flex;
+  justify-content: space-between; /* Adjust layout to place price to the right */
+}
+
+.product-spotlight-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2; /* Adjust line-height to maintain spacing */
+  margin-bottom: 10px; /* Maintain spacing between title and price */
+  margin-right: 10px; /* Add margin-right to create space for price */
+}
+
+.product-spotlight-price {
+  font-size: 16px;
+  color: #888;
+}

@@ -1,0 +1,81 @@
+/* product-spotlight.css */
+
+.product-spotlight {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.product-spotlight-card {
+  width: 400px;
+  height: 400px;
+  padding: 20px 20px 10px 20px; /* top right bottom left */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-spotlight-card.square {
+  border-radius: 0;
+}
+
+.product-spotlight-image-container {
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.product-spotlight-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-spotlight-image.active {
+  opacity: 1;
+}
+
+.product-spotlight-info {
+  display: flex;
+  justify-content: center; /* Center the title and price */
+  align-items: center;
+  width: 100%;
+  margin-top: auto; /* Push info to the bottom */
+}
+
+.product-spotlight-title-price {
+  display: flex;
+  justify-content: space-between; /* Align title and price to opposite sides */
+  align-items: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+.product-spotlight-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-right: 10px;
+  white-space: normal;
+  word-break: break-word;
+  text-align: left; /* Align title to the left */
+}
+
+.product-spotlight-price {
+  font-size: 16px;
+  color: #888;
+  text-align: right; /* Align price to the right */
+}

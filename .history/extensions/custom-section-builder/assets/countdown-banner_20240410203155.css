@@ -1,0 +1,62 @@
+.adedayo-testimonial-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5f5f5; /* Adjust background color as needed */
+    padding: 20px;
+    border-radius: 8px; /* Adjust for desired border radius */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional shadow for depth */
+  }
+  
+  .adedayo-testimonial-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .adedayo-testimonial-content {
+    flex: 1;
+    padding-right: 20px; /* Adjust spacing between text and image */
+  }
+  
+  .adedayo-testimonial-quote {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .adedayo-testimonial-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .adedayo-testimonial-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .adedayo-testimonial-stars {
+    /* Placeholder for star rating image */
+  }
+  
+  .adedayo-testimonial-review-count {
+    margin-left: 5px; /* Spacing after star image */
+  }
+  
+  .adedayo-testimonial-appname {
+    font-size: 0.85em;
+    color: #333; /* Adjust font size and color as needed */
+  }
+  
+  .adedayo-testimonial-image {
+    flex-shrink: 0;
+  }
+  
+  .adedayo-testimonial-helmet {
+    max-width: 200px; /* Adjust to match the size of the image in your layout */
+    max-height: 200px; /* Adjust for aspect ratio of the image */
+    object-fit: cover; /* Ensures the image covers the area appropriately */
+    border-radius: 4px; /* Optional to match image styling in your layout */
+  }
+  

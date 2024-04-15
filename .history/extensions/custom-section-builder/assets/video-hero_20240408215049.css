@@ -1,0 +1,81 @@
+.video-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-hero-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* Initially hidden */
+}
+
+.show-on-mobile {
+  display: none; /* Hidden by default, shown via JS on mobile */
+}
+
+.show-on-desktop {
+  display: block; /* Shown by default, hidden via JS on mobile if necessary */
+}
+
+.cover-image-container img, .video-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.video-hero-text, .video-hero-subtext {
+  text-align: center;
+  color: #fff;
+}
+
+.video-hero-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #FFFFFF;
+  background-color: #000000;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.rounded-button {
+  border-radius: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .show-on-mobile {
+    display: block;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}

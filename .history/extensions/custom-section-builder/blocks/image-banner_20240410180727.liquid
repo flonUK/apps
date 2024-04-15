@@ -1,0 +1,130 @@
+{% schema %}
+{
+  "name": "Image Banner",
+  "class": "image-banner",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "First Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Upload First Image"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "First Image Heading Text",
+      "default": "Light and Airy"
+    },
+    {
+      "type": "text",
+      "id": "subheading1",
+      "label": "First Image Subheading Text",
+      "default": "Chic bottoms built for the warmer days of spring"
+    },
+    {
+      "type": "range",
+      "id": "text_vertical_position_1",
+      "label": "First Image Text Vertical Position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "link1",
+      "label": "First Image Link (URL)"
+    },
+    {
+      "type": "header",
+      "content": "Second Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Upload Second Image"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Second Image Heading Text",
+      "default": "Color in Bloom"
+    },
+    {
+      "type": "text",
+      "id": "subheading2",
+      "label": "Second Image Subheading Text",
+      "default": "Create your personal palette with color blocking"
+    },
+    {
+      "type": "range",
+      "id": "text_vertical_position_2",
+      "label": "Second Image Text Vertical Position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "link2",
+      "label": "Second Image Link (URL)"
+    },
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Section Height",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 12,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "label": "Subheading Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Text Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+
+
+{% endschema %}
+

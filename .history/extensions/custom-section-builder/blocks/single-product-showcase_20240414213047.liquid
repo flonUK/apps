@@ -1,0 +1,39 @@
+{% schema %}
+{
+"name": "Single Product Showcase",
+"target": "section",
+"settings": [
+{
+"type": "product",
+"id": "product",
+"label": "Product"
+},
+{
+"type": "color",
+"id": "background_color",
+"label": "Background Color",
+"default": "#ffffff"
+},
+{
+"type": "number",
+"id": "image_transition_duration",
+"label": "Image Transition Duration (ms)",
+"default": 3000
+}
+]
+}
+{% endschema %}
+
+
+<div class="single-product-showcase" style="background-color: {{ section.settings.background_color }};"> {% assign product = all_products[section.settings.product] %} <div class="product-info"> <h2 class="product-title">{{ product.title }}</h2> <p class="product-price">{{ product.price | money }}</p> </div> <div class="product-images"> <div class="product-image-container"> {% for image in product.images limit: 1 %} <img src="{{ image | img_url: 'large' }}" alt="{{ image.alt }}" class="product-image active"> {% endfor %} </div>
+<div class="add-to-cart-button">
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="product-image-container">
+    {% for image in product.images offset: 1 limit: 1 %}
+      <img src="{{ image | img_url: 'large' }}" alt="{{ image.alt }}" class="product-image">
+    {% endfor %}
+  </div>
+
+</div> </div>

@@ -1,0 +1,118 @@
+:root {
+  --button-color: #000000;
+  --button-text-color: #FFFFFF;
+  --button-hover-color: #FFFFFF;
+  --button-hover-text-color: #000000;
+}
+
+.video-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-hero-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  z-index: 4;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Text and buttons display */
+.video-hero-text,
+.video-hero-subtext,
+.video-hero-button {
+  display: none; /* Default to not displayed */
+}
+
+/* Button styling */
+.video-hero-button {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border-radius: 0; /* Default to no border-radius */
+}
+
+.video-hero-button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--button-hover-text-color);
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 767px) {
+  .mobile-display .video-hero-text,
+  .mobile-display .video-hero-subtext,
+  .mobile-display .video-hero-button {
+    display: block; /* Show text and button for mobile if enabled */
+  }
+
+  .rounded-button .video-hero-button {
+    border-radius: 25px; /* Apply rounded corners for mobile if enabled */
+  }
+
+  .video-hero-overlay {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  .video-hero-text,
+  .video-hero-subtext {
+    font-size: 1em;
+  }
+
+  /* Hide desktop video, show mobile video */
+  .desktop-video {
+    display: none;
+  }
+
+  .mobile-video {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .video-hero-overlay {
+    text-align: left;
+    width: 45%;
+    bottom: 10%;
+    left: 5%;
+  }
+
+  .desktop-display .video-hero-text,
+  .desktop-display .video-hero-subtext,
+  .desktop-display .video-hero-button {
+    display: block; /* Ensure display on desktop */
+  }
+
+  .rounded-button .video-hero-button {
+    border-radius: 25px; /* Apply rounded corners for desktop if enabled */
+  }
+
+  .video-hero-text,
+  .video-hero-subtext {
+    font-size: 1.5em;
+  }
+
+  /* Hide mobile video, show desktop video */
+  .mobile-video {
+    display: none;
+  }
+
+  .desktop-video {
+    display: block;
+  }
+}

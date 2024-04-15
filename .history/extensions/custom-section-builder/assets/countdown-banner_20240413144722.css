@@ -1,0 +1,73 @@
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  height: 80vh;
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.adedayo-countdown-banner__headline {
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.adedayo-countdown-banner__description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: inherit;
+}
+
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.adedayo-countdown-banner__timer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.adedayo-countdown-banner__timer-separator {
+  margin: 0 5px;
+}
+
+.adedayo-countdown-banner__label {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.adedayo-countdown-banner__button-container {
+  margin-top: 20px;
+}
+
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #000000;
+  background-color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.adedayo-countdown-banner__link--pill {
+  border-radius: 9999px;
+}

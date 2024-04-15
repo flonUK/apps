@@ -1,0 +1,135 @@
+{% schema %}
+{
+  "name": "Fullscreen Image",
+  "target": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "radio",
+      "id": "image_source",
+      "label": "Image Source",
+      "options": [
+        {
+          "value": "image",
+          "label": "Custom Image"
+        },
+        {
+          "value": "product",
+          "label": "Product Image"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Custom Image"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text",
+      "label": "Show Text",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "fullscreen image"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_position",
+      "label": "Text Position",
+      "min": 0,
+      "max": 100,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "checkbox",
+      "id": "fixed_text_position",
+      "label": "Fixed Text Position",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Font",
+      "default": "sans-serif"
+    },
+    {
+      "type": "select",
+      "id": "text_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "text_font_style",
+      "label": "Font Style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "italic",
+          "label": "Italic"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "number",
+      "id": "font_size_desktop",
+      "label": "Font Size (Desktop)",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "font_size_mobile",
+      "label": "Font Size (Mobile)",
+      "default": 40
+    }
+  ]
+}
+{% endschema %}
+

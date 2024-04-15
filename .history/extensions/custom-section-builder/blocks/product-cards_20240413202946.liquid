@@ -1,0 +1,45 @@
+{% schema %}
+{
+  "name": "Product Cards",
+  "class": "product-cards",
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title"
+        },
+        {
+          "type": "url",
+          "id": "product_link",
+          "label": "Product Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'product-cards.css' | asset_url | stylesheet_tag }}
+
+<div class="product-cards">
+  {% for block in section.blocks %}
+    <div class="product-card">
+      <a href="{{ block.settings.product_link }}">
+        <img src="{{ block.settings.product_image | img_url: '800x' }}" alt="{{ block.settings.product_title }}" class="product-image">
+        <h3 class="product-title">{{ block.settings.product_title }}</h3>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+<script src="{{ 'product-cards.js' | asset_url }}" defer></script>
+
+

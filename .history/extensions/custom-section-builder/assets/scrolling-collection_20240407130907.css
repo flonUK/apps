@@ -1,0 +1,58 @@
+:root {
+    --background-color: #fefbd7;
+    --subtitle-background-color: #005ea2;
+    --subtitle-text-color: #ffffff;
+    --title-text-color: #121212;
+    --title-size: 36px;
+    --button-color: #000000;
+    --button-text-color: #ffffff;
+    --card-background-color: #ffffff;
+    --card-title-background-color: #f7f7f7;
+    --card-title-text-color: #333333;
+    }
+    
+    body, h1, h2, h3, p, .adedayo-scrolling-collection-subtitle-btn, .adedayo-scrolling-collection-shop-now-btn, .adedayo-scrolling-collection-main-title, .adedayo-scrolling-collection-product-title {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-font-family), sans-serif;
+    font-weight: var(--text-font-weight);
+    font-style: var(--text-font-style);
+    }
+    
+    .adedayo-scrolling-collection-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    margin: 20px auto;
+    background-color: var(--background-color);
+    overflow: hidden;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    height: 75vh;
+    width: 100% !important;
+    }
+    
+    .adedayo-scrolling-collection-grid-text {
+    text-align: center;
+    padding-bottom: 20px;
+    }
+    
+    .adedayo-scrolling-collection-subtitle-btn {
+    background-color: var(--subtitle-background-color);
+    color: var(--subtitle-text-color);
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 12px;
+    }
+    
+    .adedayo-scrolling-collection-shop-now-btn {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-radius: 24px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12

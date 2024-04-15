@@ -1,0 +1,45 @@
+
+
+
+
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--adedayo-scrolling-bg-color);
+  height: var(--adedayo-scrolling-height);
+}
+
+.adedayo-scrolling-bar-content {
+  display: inline-flex;
+  animation: adedayo-scrolling-bar-scroll-left var(--adedayo-scrolling-speed) linear infinite;
+  padding: 1.6rem 0;
+  letter-spacing: 6px;
+  line-height: 1;
+  font-weight: var(--adedayo-scrolling-font-weight);
+  font-size: var(--adedayo-scrolling-font-size);
+  font-family: var(--adedayo-scrolling-font-family);
+  color: var(--adedayo-scrolling-text-color);
+}
+
+.adedayo-scrolling-bar-link {
+  text-decoration: none;
+}
+
+.adedayo-scrolling-bar-content span,
+.adedayo-scrolling-bar-content img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes adedayo-scrolling-bar-scroll-left {
+  to {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,36 @@
+.adedayo-countdown-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack elements vertically */
+  text-align: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Adjust height as needed */
+  box-sizing: border-box;
+}
+
+.adedayo-countdown-banner__headline,
+.adedayo-countdown-banner__description,
+.adedayo-countdown-banner__timer,
+.adedayo-countdown-banner__link {
+  width: 100%;
+  margin: 10px 0; /* Add space between elements */
+}
+
+.adedayo-countdown-banner__headline {
+  font-size: 3em; /* Adjust size as needed */
+  margin-bottom: 0.5em; /* Space below headline */
+}
+
+.adedayo-countdown-banner__timer {
+  font-size: 5em; /* Adjust size as needed for visibility */
+  letter-spacing: -0.04em; /* Adjust letter spacing to match the design */
+  margin: 20px 0; /* Space around the timer */
+}
+
+.adedayo-countdown-banner__description,
+.adedayo-countdown-banner__link {
+  font-size: 1.5em; /* Adjust size as needed */
+}

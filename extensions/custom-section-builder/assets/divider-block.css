@@ -1,0 +1,45 @@
+/* Base styling for the 'adedayo' prefixed divider block */
+.adedayo-divider-block-divider {
+    background-color: var(--adedayo-divider-block-color);
+    width: var(--adedayo-divider-block-width);
+    height: var(--adedayo-divider-block-thickness);
+    margin: 0 auto; /* Center the divider */
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+  }
+  
+  /* No effect when hover effect is 'none' */
+  .adedayo-divider-block-divider--none {
+    /* No additional styling needed */
+  }
+  
+  /* Wobble effect on hover */
+  .adedayo-divider-block-divider--wobble:hover {
+    animation: adedayo-wobble-animation 0.5s infinite;
+  }
+  
+  @keyframes adedayo-wobble-animation {
+    0%, 100% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+  }
+  
+  /* Pulse effect on hover */
+  .adedayo-divider-block-divider--pulse:hover {
+    animation: adedayo-pulse-animation 0.5s infinite;
+  }
+  
+  @keyframes adedayo-pulse-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Buzz effect on hover */
+  .adedayo-divider-block-divider--buzz:hover {
+    animation: adedayo-buzz-animation 0.15s infinite;
+  }
+  
+  @keyframes adedayo-buzz-animation {
+    50% { transform: translateX(3px) rotate(2deg); }
+    100% { transform: translateX(-3px) rotate(-2deg); }
+  }
+  

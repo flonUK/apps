@@ -1,0 +1,79 @@
+/* General Styles for the Countdown Banner */
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto; /* Adjust based on the banner height setting */
+}
+
+/* Content container styling */
+.adedayo-countdown-banner__content {
+  max-width: 1200px; /* Ensures content is not too wide on larger screens */
+  width: 100%;
+  margin: 0 auto; /* Center the content container */
+  padding: 20px; /* Padding around the content */
+  text-align: center; /* Default alignment, can be overridden by settings */
+}
+
+/* Headline styling */
+.adedayo-countdown-banner__headline {
+  margin: 10px 0; /* Space above and below the headline */
+  color: inherit; /* Inherits color from inline styles */
+  font-size: inherit; /* Font size set through settings */
+  font-weight: bold; /* Makes the headline text bold */
+}
+
+/* Description styling */
+.adedayo-countdown-banner__description {
+  margin-bottom: 20px; /* Space below the description */
+  color: inherit; /* Inherits color from inline styles */
+  font-size: inherit; /* Font size set through settings */
+  line-height: 1.4; /* Line height for better readability */
+}
+
+/* Countdown timer styling */
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center; /* Ensures timer elements are centered */
+  align-items: center;
+  margin-bottom: 20px; /* Space below the countdown timer */
+  font-size: inherit; /* Inherits font size from inline styles */
+  color: inherit; /* Inherits color from inline styles */
+}
+
+/* Individual countdown items */
+.adedayo-countdown-banner__timer-item {
+  margin: 0 5px; /* Spacing between timer elements */
+}
+
+/* Separator between countdown items */
+.adedayo-countdown-banner__timer-separator {
+  color: #CCC; /* Light color for the separator */
+}
+
+/* Button styling */
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit; /* Inherits color from inline styles */
+  background-color: inherit; /* Inherits background color from inline styles */
+  border-radius: 0; /* Default no rounding, overridden if pill style is selected */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions for hover states */
+}
+
+/* Pill-style button adjustment */
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px; /* Rounded edges for pill style */
+}
+
+/* Hover effects for the button */
+.adedayo-countdown-banner__link:hover {
+  background-color: #ddd; /* Darkens the background slightly on hover */
+  color: #222; /* Darkens the text color on hover */
+}

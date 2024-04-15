@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("{{ 'CustomFont.woff' | asset_url }}") format("woff");
+}
+
+.adedayo-hero-advertisement-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.adedayo-hero-advertisement-content {
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.adedayo-text-wrapper {
+  margin-bottom: 15px;
+}
+
+.adedayo-hero-advertisement-heading {
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  font-family: var(--heading-font);
+}
+
+.adedayo-hero-advertisement-subheading {
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  font-family: var(--subheading-font);
+}
+
+.adedayo-hero-advertisement-shop-button {
+  display: inline-block;
+  padding: 10px 60px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--button-text-color, inherit);
+  border: 2px solid var(--button-border-color, #FFFFFF);
+  border-radius: 50px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.025rem;
+}
+
+.adedayo-hero-advertisement-shop-button:hover {
+  color: var(--button-hover-text-color);
+  background-color: var(--button-hover-bg-color);
+}

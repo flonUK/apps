@@ -1,0 +1,44 @@
+.scrolling-bar {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    align-items: center;
+  }
+  
+  .scrolling-content {
+    display: inline-flex;
+    animation: scroll-left linear infinite;
+    padding: 1.6rem 0;
+    font-size: 2.4rem;
+    letter-spacing: 6px;
+    line-height: 1;
+  }
+  
+  .scrolling-content:hover {
+    animation-play-state: paused;
+  }
+  
+  .scrolling-content span {
+    margin-right: 10px;
+  }
+  
+  .scrolling-content img {
+    max-height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }

@@ -1,0 +1,64 @@
+/* Main banner styling */
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80vh;
+}
+
+/* Content container within the banner */
+.adedayo-countdown-banner__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: inherit;
+}
+
+/* Headline styles */
+.adedayo-countdown-banner__headline {
+  margin: 0.5em 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Description styles */
+.adedayo-countdown-banner__description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: inherit;
+}
+
+/* Countdown timer styles */
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: inherit;
+  align-items: center;
+  font-size: inherit;
+  color: inherit;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  background-color: inherit;
+  border-radius: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px;
+}
+
+.adedayo-countdown-banner__link:hover {
+  background-color: #ccc;
+  color: #333;
+}

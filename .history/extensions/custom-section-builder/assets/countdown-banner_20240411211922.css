@@ -1,0 +1,62 @@
+/* Main banner styling */
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto; /* Ensure it covers the set height */
+}
+
+/* Content container within the banner */
+.adedayo-countdown-banner__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: inherit; /* Inherits alignment */
+}
+
+/* Headline styles */
+.adedayo-countdown-banner__headline {
+  margin: 0.5em 0;
+  color: inherit; /* Ensures color is inherited from inline style */
+}
+
+/* Description styles */
+.adedayo-countdown-banner__description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: inherit; /* Ensures color is inherited from inline style */
+}
+
+/* Countdown timer styles */
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  width: 100%;
+  font-size: inherit; /* Ensures font size is inherited from inline style */
+  color: inherit; /* Ensures color is inherited from inline style */
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0; /* Default square style */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px; /* Pill style if selected */
+}
+
+.adedayo-countdown-banner__link:hover {
+  background-color: #ccc; /* Change for hover effect */
+  color: #333;
+}

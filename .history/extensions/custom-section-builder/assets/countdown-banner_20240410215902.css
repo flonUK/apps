@@ -1,0 +1,45 @@
+.adedayo-countdown-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+}
+
+.adedayo-countdown-banner__headline {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.adedayo-countdown-banner__description {
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer span {
+  display: inline-block;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+} 

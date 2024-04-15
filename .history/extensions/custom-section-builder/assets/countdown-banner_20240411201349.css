@@ -1,0 +1,57 @@
+.adedayo-countdown-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Adjust based on the unified content alignment setting */
+  background-size: cover;
+  background-position: center;
+  color: #ffffff; /* Assuming white text color as default */
+  height: 80vh; /* Default height set via settings */
+}
+
+.adedayo-countdown-banner__content {
+  max-width: 800px;
+  width: 100%;
+  text-align: inherit; /* Inherits alignment from parent */
+}
+
+.adedayo-countdown-banner__headline {
+  margin: 0 0 10px;
+  color: inherit; /* Inherits color from parent for simpler theme changes */
+}
+
+.adedayo-countdown-banner__description {
+  margin-bottom: 20px;
+  color: inherit; /* Inherits color from parent for easier adjustments */
+}
+
+.adedayo-countdown-banner__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Default font size for countdown */
+  margin-bottom: 20px;
+}
+
+.adedayo-countdown-banner__timer-item {
+  margin: 0 5px;
+}
+
+.adedayo-countdown-banner__timer-separator {
+  margin: 0 5px;
+}
+
+.adedayo-countdown-banner__link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000; /* Default button text color */
+  background-color: #ffffff; /* Default button background color */
+  border-radius: 0; /* Square style by default */
+}
+
+.adedayo-countdown-banner__link--pill {
+  border-radius: 25px; /* Pill style if selected */
+}

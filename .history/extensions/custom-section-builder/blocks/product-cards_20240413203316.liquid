@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "Product Cards",
+  "class": "product-cards",
+  "target"
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_1_title",
+      "label": "Product 1 Title",
+      "default": "Product 1"
+    },
+    {
+      "type": "url",
+      "id": "product_1_link",
+      "label": "Product 1 Link",
+      "default": "#"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_1_image",
+      "label": "Product 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "product_2_title",
+      "label": "Product 2 Title",
+      "default": "Product 2"
+    },
+    {
+      "type": "url",
+      "id": "product_2_link",
+      "label": "Product 2 Link",
+      "default": "#"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_2_image",
+      "label": "Product 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "product_3_title",
+      "label": "Product 3 Title",
+      "default": "Product 3"
+    },
+    {
+      "type": "url",
+      "id": "product_3_link",
+      "label": "Product 3 Link",
+      "default": "#"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_3_image",
+      "label": "Product 3 Image"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="product-cards">
+    <div class="product-card">
+      <a href="{{ settings.product_1_link }}">
+        <img src="{{ settings.product_1_image | image_url: width: 150 }}" alt="{{ settings.product_1_title }}">
+        <h3>{{ settings.product_1_title }}</h3>
+      </a>
+    </div>
+    
+    <div class="product-card">
+      <a href="{{ settings.product_2_link }}">
+        <img src="{{ settings.product_2_image | image_url: width: 150 }}" alt="{{ settings.product_2_title }}">
+        <h3>{{ settings.product_2_title }}</h3>
+      </a>
+    </div>
+    
+    <div class="product-card">
+      <a href="{{ settings.product_3_link }}">
+        <img src="{{ settings.product_3_image | image_url: width: 150 }}" alt="{{ settings.product_3_title }}">
+        <h3>{{ settings.product_3_title }}</h3>
+      </a>
+    </div>
+  </div>
+  

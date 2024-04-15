@@ -1,0 +1,112 @@
+.video-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-hero-background {
+  display: none; /* Initially hide all videos */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Specifically show only the relevant video based on class */
+.mobile-video.show-on-mobile,
+.desktop-video:not(.show-on-mobile) {
+  display: block;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Ensure overlay content is above the video */
+  color: #fff;
+}
+
+.video-hero-text,
+.video-hero-subtext {
+  z-index: 2;
+  text-align: center;
+}
+
+.video-hero-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+.video-hero-button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .show-on-mobile {
+    display: block;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .video-hero-text,
+  .video-hero-subtext,
+  .video-hero-button {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .show-on-desktop {
+    display: block;
+  }
+
+  .hide-on-desktop {
+    display: none;
+  }
+
+  .video-hero-overlay {
+    padding: 20px;
+    justify-content: space-around;
+  }
+
+  .video-hero-text {
+    font-size: 2em;
+  }
+
+  .video-hero-subtext {
+    font-size: 1.2em;
+  }
+
+  /* Adjust button size and position for desktop */
+  .video-hero-button {
+    font-size: 1.2em;
+  }
+}

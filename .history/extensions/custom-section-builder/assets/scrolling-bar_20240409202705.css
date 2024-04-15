@@ -1,0 +1,49 @@
+/* Container styling for the scrolling bar */
+.adedayo-scrolling-bar-container {
+  width: 100%;
+  overflow: hidden; /* Hide overflow to ensure a clean scrolling effect */
+  white-space: nowrap; /* Keep scrolling content in a single line */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  background-color: var(--adedayo-scrolling-bg-color); /* Use a custom property for background color */
+  height: var(--adedayo-scrolling-height); /* Dynamically set the height based on a custom property */
+}
+
+/* Styling for the content that will scroll */
+.adedayo-scrolling-bar-content {
+  display: flex; /* Use flex display for inline content alignment */
+  animation: adedayo-scrolling-bar-scroll var(--adedayo-scrolling-speed) linear infinite; /* Apply scrolling animation */
+  padding: 1.6rem 0; /* Provide top and bottom padding for the content */
+  font-weight: var(--adedayo-scrolling-font-weight); /* Set font weight using a custom property */
+  font-size: var(--adedayo-scrolling-font-size); /* Adjust font size using a custom property */
+  font-family: var(--adedayo-scrolling-font-family); /* Specify font family using a custom property */
+  color: var(--adedayo-scrolling-text-color); /* Set text color using a custom property */
+}
+
+/* Ensure links within the scrolling content inherit the appropriate styles */
+.adedayo-scrolling-bar-content a {
+  color: inherit; /* Inherit text color from the parent element */
+  text-decoration: none; /* Remove underline from links */
+}
+
+/* Additional styling for text spans and images within the scrolling content */
+.adedayo-scrolling-bar-content span,
+.adedayo-scrolling-bar-content img {
+  margin-right: 10px; /* Space out items within the scrolling content */
+  vertical-align: middle; /* Align images and text correctly */
+}
+
+/* Pause the scrolling animation when the user hovers over the content */
+.adedayo-scrolling-bar-content:hover {
+  animation-play-state: paused;
+}
+
+/* Define keyframes for the scrolling animation */
+@keyframes adedayo-scrolling-bar-scroll {
+  from {
+    transform: translate3d(0, 0, 0); /* Start with content fully visible */
+  }
+  to {
+    transform: translate3d(-100%, 0, 0); /* End with content fully scrolled out to the left */
+  }
+}
